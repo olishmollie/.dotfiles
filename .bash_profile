@@ -29,10 +29,6 @@ if [ -d "~/.tmuxinator" ]; then
   source ~/.tmuxinator.bash
 fi
 
-# Aliases/functions
-alias be='bundle exec'
-alias vim='mvim -v'
-
 function mkcd() {
   mkdir $1; cd $1;
 }
@@ -64,4 +60,16 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export GREP_OPTIONS='--color=always'
 
 # Auto-load rbenv
-eval "$(rbenv init -)"
+if type "rbenv" > /dev/null; then
+  eval "$(rbenv init -)"
+fi
+
+# Aliases/functions
+if type "bundle" > /dev/null; then
+  alias be='bundle exec'
+fi
+
+if type "mvim" > /dev/null; then
+  alias vim='mvim -v'
+fi
+
