@@ -2,10 +2,6 @@
 export VISUAL=vim
 export EDITOR=$VISUAL
 
-# Gmail Username and Password
-export GMAIL_USERNAME='olishmollie@gmail.com'
-export GMAIL_PASSWORD='k#>6yu}O>fjgrI,g.<dD9)[sh'
-
 # Prompt
 Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
