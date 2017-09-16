@@ -1,5 +1,6 @@
 # Default Editor
-export EDITOR=vim
+export VISUAL=vim
+export EDITOR=$VISUAL
 
 # Gmail Username and Password
 export GMAIL_USERNAME='olishmollie@gmail.com'
@@ -10,23 +11,27 @@ Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
 li=$'\xe2\x98\xb2'
 
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -d "/usr/local/etc/bash_completion.d" ]; then
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
 
-GIT_PS1_SHOWCOLORHINTS=1
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUPSTREAM="auto"
-PROMPT_COMMAND="__git_ps1 '$Red$li$ColorReset \W' ':> '; $PROMPT_COMMAND"
+  GIT_PS1_SHOWCOLORHINTS=1
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWUNTRACKEDFILES=1
+  GIT_PS1_SHOWSTASHSTATE=1
+  GIT_PS1_SHOWUPSTREAM="auto"
+  PROMPT_COMMAND="__git_ps1 '$Red$li$ColorReset \W' ':> '; $PROMPT_COMMAND"
 
-# git completion
-source /usr/local/etc/bash_completion.d/git-completion.bash
+  # git completion
+  source /usr/local/etc/bash_completion.d/git-completion.bash
+
+  # pass completion
+  source /usr/local/etc/bash_completion.d/pass-completion.bash
+fi
 
 # tmuxinator completion
-source ~/.tmuxinator.bash
-
-# pass completion
-source /usr/local/etc/bash_completion.d/pass-completion.bash
+if [ -d "~/.tmuxinator" ]; then
+  source ~/.tmuxinator.bash
+fi
 
 # Aliases/functions
 alias be='bundle exec'
