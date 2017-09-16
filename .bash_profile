@@ -1,3 +1,8 @@
+# Set Language
+if [ "$LANG" != "en.utf-8" ]; then
+  export LANG='en_US.utf-8'
+fi
+
 # Default Editor
 export VISUAL=vim
 export EDITOR=$VISUAL
