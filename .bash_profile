@@ -10,9 +10,8 @@ export EDITOR=$VISUAL
 # Prompt
 Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
-li=$'\xe2\x98\xb2'
 
-if [ -d "/usr/local/etc/bash_completion.d" ]; then
+if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   source /usr/local/etc/bash_completion.d/git-prompt.sh
 
   GIT_PS1_SHOWCOLORHINTS=1
@@ -20,12 +19,18 @@ if [ -d "/usr/local/etc/bash_completion.d" ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWSTASHSTATE=1
   GIT_PS1_SHOWUPSTREAM="auto"
-  PROMPT_COMMAND="__git_ps1 '$Red$li$ColorReset \W' ':> '; $PROMPT_COMMAND"
+  PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; $PROMPT_COMMAND"
+else
+  export PS1="$Red\u$ColorReset \W"
+fi
 
-  # git completion
+# git completion
+if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
   source /usr/local/etc/bash_completion.d/git-completion.bash
+fi
 
-  # pass completion
+# pass completion
+if [ -f "/usr/local/etc/bash_completion.d/pass-completion.bash" ]; then
   source /usr/local/etc/bash_completion.d/pass-completion.bash
 fi
 
@@ -65,16 +70,16 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export GREP_OPTIONS='--color=always'
 
 # Auto-load rbenv
-if type "rbenv" > /dev/null; then
+if type "rbenv" > /dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 
 # Aliases/functions
-if type "bundle" > /dev/null; then
+if type "bundle" > /dev/null 2>&1; then
   alias be='bundle exec'
 fi
 
-if type "mvim" > /dev/null; then
+if type "mvim" > /dev/null 2>&1; then
   alias vim='mvim -v'
 fi
 
