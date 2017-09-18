@@ -19,6 +19,7 @@ set t_ti= t_te=
 let loaded_matchparen=1
 
 call plug#begin('~/.vim/plugged')
+Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -35,6 +36,9 @@ Plug 'godlygeek/tabular'
 Plug 'leafgarland/typescript-vim'
 Plug 'Raimondi/delimitMate'
 call plug#end()
+
+" Color scheme
+colorscheme monokai
 
 " Syntastic
 let g:syntastic_mode_map = {

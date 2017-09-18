@@ -30,8 +30,8 @@ if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
 fi
 
 # pass completion
-if [ -f "/usr/local/etc/bash_completion.d/pass-completion.bash" ]; then
-  source /usr/local/etc/bash_completion.d/pass-completion.bash
+if [ -f "/usr/local/etc/bash_completion.d/pass.bash-completion" ]; then
+  source /usr/local/etc/bash_completion.d/pass.bash-completion
 fi
 
 # tmuxinator completion
