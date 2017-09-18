@@ -36,9 +36,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Raimondi/delimitMate'
 call plug#end()
 
-" Color scheme
-colorscheme monokai
-
 " Syntastic
 let g:syntastic_mode_map = {
   \ "mode": "active",
