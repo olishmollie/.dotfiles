@@ -1,0 +1,2 @@
+# Ignore vim packages
+.vim/plugged/*

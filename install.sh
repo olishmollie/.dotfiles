@@ -2,11 +2,11 @@
 
 # Copies and symlinks dotfiles into home folder
 
-cp -R .vim ~
+mv .vim ~
 cp .gitignore_global ~
 cp .gitconfig ~
 
-ln -s .bash_profile ~/.bash_profile
-ls -s .vimrc ~/.vimrc
+ln -s ~/.profile/.bash_profile ~/.bash_profile
+ln -s ~/.profile/.vimrc ~/.vimrc
 
 cp .olishmollie.uninstall.sh ~
