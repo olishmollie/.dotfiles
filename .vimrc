@@ -34,6 +34,12 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Raimondi/delimitMate'
 call plug#end()
 
+" Pane navigation (if no tmux)
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+
 " Syntastic
 let g:syntastic_mode_map = {
   \ "mode": "active",
