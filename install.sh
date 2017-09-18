@@ -10,3 +10,6 @@ ln -s ~/.profile/.bash_profile ~/.bash_profile
 ln -s ~/.profile/.vimrc ~/.vimrc
 
 cp .olishmollie.uninstall.sh ~
+
+# Installs vim plugins
+vim -E -c PlugInstall -c qa
