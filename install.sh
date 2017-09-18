@@ -16,10 +16,6 @@ cp .olishmollie.uninstall.sh ~
 # Installs vim plugins
 vim +PlugInstall +qall 
 
-# Add colorscheme
-echo '' >> ~/.vimrc
-echo 'colorscheme Monokai' >> ~/.vimrc
-
 echo 'Installation complete.'
 echo 'To uninstall, run .olishmollie.uninstall.sh'
 echo ''

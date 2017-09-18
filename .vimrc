@@ -19,7 +19,6 @@ set t_ti= t_te=
 let loaded_matchparen=1
 
 call plug#begin('~/.vim/plugged')
-Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
@@ -84,5 +83,3 @@ autocmd CursorMoved * call lightline#update()
 
 " DelimitMate
 let delimitMate_expand_cr=1
-
-colorscheme monokai
