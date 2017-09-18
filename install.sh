@@ -10,6 +10,8 @@ cp .gitconfig ~
 
 ln -s ~/.profile/.bash_profile ~/.bash_profile
 ln -s ~/.profile/.vimrc ~/.vimrc
+ln -s ~/.profile/.inputrc ~/.inputrc
+ln -s ~/.profile/.irbrc ~/.irbrc
 
 cp .olishmollie.uninstall.sh ~
 
