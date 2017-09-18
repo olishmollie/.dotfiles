@@ -84,3 +84,5 @@ autocmd CursorMoved * call lightline#update()
 
 " DelimitMate
 let delimitMate_expand_cr=1
+
+colorscheme monokai

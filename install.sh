@@ -18,7 +18,7 @@ vim +PlugInstall +qall
 
 # Add colorscheme
 echo '' >> ~/.vimrc
-echo 'colorscheme monokai' >> ~/.vimrc
+echo 'colorscheme Monokai' >> ~/.vimrc
 
 echo 'Installation complete.'
 echo 'To uninstall, run .olishmollie.uninstall.sh'
