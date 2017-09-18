@@ -20,7 +20,6 @@ let loaded_matchparen=1
 
 call plug#begin('~/.vim/plugged')
 Plug 'flazz/vim-colorschemes'
-Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
@@ -46,8 +45,8 @@ let g:syntastic_mode_map = {
   \ "passive_filetypes": ["html"] }
 
 " YouCompleteMe
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>rn :YcmCompleter RefactorRename 
+" nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+" nnoremap <leader>rn :YcmCompleter RefactorRename 
 
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>

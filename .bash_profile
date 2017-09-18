@@ -1,8 +1,3 @@
-# Set Language
-if [ "$LANG" != "en.utf-8" ]; then
-  export LANG='en_US.utf-8'
-fi
-
 # Default Editor
 export VISUAL=vim
 export EDITOR=$VISUAL
@@ -27,11 +22,6 @@ fi
 # git completion
 if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
   source /usr/local/etc/bash_completion.d/git-completion.bash
-fi
-
-# pass completion
-if [ -f "/usr/local/etc/bash_completion.d/pass.bash-completion" ]; then
-  source /usr/local/etc/bash_completion.d/pass.bash-completion
 fi
 
 # tmuxinator completion
