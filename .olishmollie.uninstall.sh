@@ -9,3 +9,5 @@ rm .gitconfig
 
 rm -rf ~/.vim
 rm -rf .profile
+
+rm .olishmollie.uninstall.sh
