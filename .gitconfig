@@ -1,0 +1,19 @@
+[user]
+	name = AJ Bond
+  email = olishmollie@gmail.com
+[alias]
+  co = checkout
+  br = branch
+  cob = checkout -b
+  st = status
+  undo = reset HEAD~1 --mixed
+  conflicts = diff --name-only --diff-filter=U
+[core]
+	excludesfile = /Users/ollieshmollie/.gitignore_global
+	editor = vim
+[format]
+	pretty = oneline
+[log]
+	abbrevCommit = true
+[github]
+	username = olishmollie
