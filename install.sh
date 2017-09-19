@@ -20,5 +20,5 @@ vim +PlugInstall +qall
 
 echo 'Installation complete.'
 echo 'Restart terminal to see changes.'
-echo 'To uninstall, run .olishmollie.uninstall.sh'
+echo 'To uninstall, run olishmollie.uninstall.sh'
 echo ''
