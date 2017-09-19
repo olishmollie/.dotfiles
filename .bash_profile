@@ -73,3 +73,7 @@ if type "mvim" > /dev/null 2>&1; then
   alias vim='mvim -v'
 fi
 
+# Move to H: drive if on ACC windows computer
+if [ "-d /h" ] && [ "$(uname)" = "MINGW64_NT-6.1" ]; then
+  cd /h
+fi
