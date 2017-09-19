@@ -13,7 +13,7 @@ ln -s ~/.profile/.vimrc ~/.vimrc
 ln -s ~/.profile/.inputrc ~/.inputrc
 ln -s ~/.profile/.irbrc ~/.irbrc
 
-cp .olishmollie.uninstall.sh ~
+cp olishmollie.uninstall.sh ~
 
 # Installs vim plugins
 vim +PlugInstall +qall 
