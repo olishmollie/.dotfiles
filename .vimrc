@@ -66,3 +66,5 @@ nnoremap <leader>cp :CtrlPClearCache<CR>
 
 " DelimitMate
 let delimitMate_expand_cr=1
+
+silent! colo Benokai
