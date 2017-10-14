@@ -5,6 +5,7 @@ set wildchar=<Tab> wildmenu wildmode=full
 set ttimeoutlen=50
 set visualbell
 set noshowmode
+set number
 
 set ignorecase
 set laststatus=2
@@ -35,9 +36,12 @@ Plug 'itchyny/lightline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'leafgarland/typescript-vim'
+Plug 'keith/swift.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-syntastic/syntastic'
 call plug#end()
+
+colo obsidian
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -66,5 +70,3 @@ nnoremap <leader>cp :CtrlPClearCache<CR>
 
 " DelimitMate
 let delimitMate_expand_cr=1
-
-silent! colo Benokai
