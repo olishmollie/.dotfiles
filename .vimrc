@@ -6,6 +6,7 @@ set ttimeoutlen=50
 set visualbell
 set noshowmode
 set number
+set noic
 
 set ignorecase
 set laststatus=2
