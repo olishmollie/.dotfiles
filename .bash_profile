@@ -78,5 +78,3 @@ if [ "-d /h" ] && [ "$(uname)" = "MINGW64_NT-6.1" ]; then
   cd /h
 fi
 
-# Rust path config
-export PATH="$HOME/.cargo/bin:$PATH"
