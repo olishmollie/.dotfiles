@@ -44,7 +44,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'vim-syntastic/syntastic'
 call plug#end()
 
-colo obsidian
+silent! colo obsidian
 
 " Syntastic
 set statusline+=%#warningmsg#
