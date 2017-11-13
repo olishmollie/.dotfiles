@@ -14,7 +14,7 @@ if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWSTASHSTATE=1
   GIT_PS1_SHOWUPSTREAM="auto"
-  PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W ' ':> '; $PROMPT_COMMAND"
+  PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; $PROMPT_COMMAND"
 else
   export PS1="$Red\u$ColorReset \W :> "
 fi
