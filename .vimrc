@@ -26,7 +26,6 @@ set t_ti= t_te=
 let loaded_matchparen=1
 
 call plug#begin('~/.vim/plugged')
-Plug 'craigemery/vim-autotag'
 Plug 'ajh17/VimCompletesMe'
 Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'

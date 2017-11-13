@@ -29,6 +29,11 @@ if [ -d "~/.tmuxinator" ]; then
   source ~/.tmuxinator.bash
 fi
 
+# timer completion
+if [ -d "$HOME/.timer" ]; then
+  source /usr/local/etc/bash_completion.d/timer-completion.bash
+fi
+
 function mkcd() {
   mkdir $1; cd $1;
 }
