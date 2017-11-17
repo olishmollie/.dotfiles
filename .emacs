@@ -19,6 +19,11 @@
 (eval-when-compile
   (require 'use-package))
 
+;; Flycheck
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode))
 
 ;; Org
 (use-package org
