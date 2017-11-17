@@ -27,9 +27,9 @@
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-ca" 'org-agenda)
   (setq org-log-done t)
-  (setq org-agenda-files (list (file-expand-wildcards "~/org/School/*.org")
-				(file-expand-wildcards "~/org/Work/*.org")
-				(file-expand-wildcards "~/org/Home/*.org"))))
+  (setq org-agenda-files (list "~/org/School/"
+			       "~/org/Home/"
+			       "~/org/Work/")))
 
 ;; Helm
 (use-package helm
