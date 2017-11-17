@@ -57,7 +57,9 @@
 
 ;; Magit
 (use-package magit
-  :ensure t)
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x g") 'magit-status))
 
 
 ;; Evil
@@ -75,7 +77,8 @@
       "b" 'switch-to-buffer
       "f" 'helm-find-files
       "x" 'helm-M-x
-      "t" 'org-insert-todo-heading))
+      "t" 'org-insert-todo-heading
+      "g" 'magit-status))
 
   (use-package evil-surround
     :ensure t
