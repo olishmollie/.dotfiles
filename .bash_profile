@@ -1,5 +1,5 @@
 # Default Editor
-export VISUAL=vim
+export VISUAL=emacs
 export EDITOR=$VISUAL
 
 # Prompt
