@@ -3,7 +3,6 @@
 (setq visible-bell t)
 (global-visual-line-mode t)
 
-
 ;; Package.el
 (require 'package)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
@@ -59,14 +58,12 @@
   :config
   (projectile-mode t))
 
-
 ;; Magit
 (use-package magit
   :ensure t
   :config
   (global-set-key (kbd "C-x g") 'magit-status)
   (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup))
-
 
 ;; Evil
 (use-package evil
@@ -92,7 +89,6 @@
     (global-evil-surround-mode))
 
   (evil-mode t))
-
 
 ;; Themes
 (setq custom-file "~/.emacs.d/custom.el")
