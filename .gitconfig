@@ -9,7 +9,7 @@
   undo = reset HEAD~1 --mixed
   conflicts = diff --name-only --diff-filter=U
 [core]
-	excludesfile = /Users/ollieshmollie/.gitignore_global
+	excludesfile = /Users/ajbond/.gitignore_global
 	editor = vim
 [format]
 	pretty = oneline

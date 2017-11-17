@@ -5,18 +5,21 @@
 set -e
 
 cp -R .vim ~
-cp .gitignore_global ~
-cp .gitconfig ~
 
-ln -s ~/.profile/.bash_profile ~/.bash_profile
-ln -s ~/.profile/.vimrc ~/.vimrc
-ln -s ~/.profile/.inputrc ~/.inputrc
-ln -s ~/.profile/.irbrc ~/.irbrc
+ln -s $HOME/.profile/.bash_profile $HOME/.bash_profile
+ln -s $HOME/.profile/.vimrc $HOME/.vimrc
+ln -s $HOME/.profile/.inputrc $HOME/.inputrc
+ln -s $HOME/.profile/.irbrc $HOME/.irbrc
+ln -s $HOME/.profile/.gitignore_global $HOME/.gitignore_global
+ln -s $HOME/.profile/.gitconfig $HOME/.gitconfig
+
+# Sets global gitignore
+git config --global core.excludesfile $HOME/.gitignore_global
 
 cp olishmollie.uninstall.sh ~
 
 # Installs vim plugins
-vim +PlugInstall +qall 
+vim +PlugInstall +qall
 
 echo 'Installation complete.'
 echo 'Restart terminal to see changes.'
