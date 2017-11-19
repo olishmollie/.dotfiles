@@ -1,7 +1,14 @@
 ;; Global customizations
 (tool-bar-mode -1)
-(setq visible-bell t)
 (global-visual-line-mode t)
+(global-set-key (kbd "C-c o") 'occur)
+(add-hook 'occur-hook
+          '(lambda ()
+             (switch-to-buffer-other-window "*Occur*")))
+
+;; Settings
+(setq visible-bell t)
+(setq c-basic-offset 4)
 
 ;; Package.el
 (require 'package)
@@ -17,6 +24,14 @@
 
 (eval-when-compile
   (require 'use-package))
+
+;; Sublimity
+(use-package sublimity
+  :ensure t
+  :config
+  (require 'sublimity-scroll)
+  (require 'sublimity-attractive)
+  (sublimity-mode))
 
 ;; Flycheck
 (use-package flycheck
@@ -39,12 +54,9 @@
 (use-package helm
   :ensure t
   :config
-  (require 'helm-config)
+  (helm-mode t)
   (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "C-x C-f") 'helm-find-files)
-  (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-  (helm-mode t))
-
+  (define-key helm-find-files-map "\t" 'helm-execute-persistent-action))
 
 ;; Auto-complete
 (use-package auto-complete
@@ -71,16 +83,18 @@
   :config
   (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
   (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-ex-map "b " 'helm-mini)
+  (define-key evil-ex-map "e " 'helm-find-files)
+  (define-key helm-map (kbd "C-j") 'helm-next-line)
+  (define-key helm-map (kbd "C-k") 'helm-previous-line)
+  (define-key helm-map (kbd "C-h") 'helm-next-source)
+  (define-key helm-map [escape] 'helm-keyboard-quit)
 
   (use-package evil-leader
     :ensure t
     :config
     (global-evil-leader-mode)
     (evil-leader/set-key
-      "b" 'switch-to-buffer
-      "f" 'helm-find-files
-      "x" 'helm-M-x
-      "t" 'org-insert-todo-heading
       "g" 'magit-status))
 
   (use-package evil-surround
@@ -88,6 +102,18 @@
     :config
     (global-evil-surround-mode))
 
+  (use-package evil-magit
+    :ensure t)
+
+  (evil-add-hjkl-bindings occur-mode-map 'emacs
+    (kbd "/")       'evil-search-forward
+    (kbd "n")       'evil-search-next
+    (kbd "N")       'evil-search-previous
+    (kbd "C-d")     'evil-scroll-down
+    (kbd "C-u")     'evil-scroll-up
+    (kbd "C-w C-w") 'other-window)
+
+  (evil-add-hjkl-bindings package-menu-mode-map 'emacs)
   (evil-mode t))
 
 ;; Themes
@@ -98,9 +124,3 @@
   :ensure t
   :config
   (load-theme 'sanityinc-tomorrow-eighties t))
-
-(use-package smart-mode-line
-  :ensure t
-  :config
-  (sml/setup t)
-  (setq sml/theme 'dark))
