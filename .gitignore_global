@@ -42,6 +42,8 @@ vendor/
 
 # JetBrains #
 .idea/
+CMakeLists.txt
+cmake-build-debug
 
 # Environment Variables #
 .env
@@ -66,4 +68,6 @@ Thumbs.db
 *.swp
 *.swo
 
-
+# Ctags #
+#########
+tags
