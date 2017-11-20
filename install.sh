@@ -4,10 +4,12 @@
 
 set -e
 
-cp -R .vim ~
+cp -R .vim $HOME
+cp -R .emacs.d $HOME
 
 ln -s $HOME/.profile/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.profile/.vimrc $HOME/.vimrc
+ln -s $HOME/.profile/.spacemacs $HOME/.spacemacs
 ln -s $HOME/.profile/.inputrc $HOME/.inputrc
 ln -s $HOME/.profile/.irbrc $HOME/.irbrc
 ln -s $HOME/.profile/.gitignore_global $HOME/.gitignore_global
