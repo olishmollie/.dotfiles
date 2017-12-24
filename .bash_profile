@@ -1,6 +1,7 @@
 # Default Editor
 export VISUAL=emacs
 export EDITOR=$VISUAL
+alias e='emacsclient --no-wait'
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -33,6 +34,9 @@ fi
 if [ -d "$HOME/.timer" ]; then
   source /usr/local/etc/bash_completion.d/timer-completion.bash
 fi
+
+# Load private env variables
+source ~/.env
 
 function mkcd() {
   mkdir $1; cd $1;
