@@ -47,21 +47,6 @@ values." (setq-default
      git
      ;; markdown
      org
-     (mu4e :variables
-           mu4e-installation-path "/usr/local/share/emacs/site-lisp/mu/mu4e"
-           mu4e-maildir "~/.mail"
-           mu4e-drafts-folder "/[Gmail].Drafts"
-           mu4e-sent-folder "/[Gmail].Sent Mail"
-           ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
-           mu4e-sent-messages-behavior 'delete
-           user-mail-address "olishmollie@gmail.com"
-           user-full-name  "AJ Bond"
-           mu4e-compose-signature (concat "Thanks\n" "Andrew")
-           mu4e-get-mail-command "mbsync -a"
-           mu4e-view-show-images t
-           mu4e-view-show-addresses t
-           mu4e-enable-mode-line t
-           )
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -73,7 +58,7 @@ values." (setq-default
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(obsidian-theme)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -151,7 +136,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("SF Mono Regular"
                                :size 13
                                :weight normal
                                :width normal
@@ -328,11 +313,11 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq-default c-basic-offset 4)
+  (load-theme 'obsidian)
   (global-visual-line-mode)
-  (add-hook 'term-mode-hook
-            (lambda ()
-              (define-key term-raw-map (kbd "C-l") 'erase-buffer)))
+  (setq-default c-basic-offset 4)
+  (setq-default flycheck-python-pycompile-executable "python3")
+  (setq-default flycheck-clang-language-standard "c++14")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
