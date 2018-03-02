@@ -6,13 +6,13 @@ set -e
 
 cp -R .vim $HOME
 
-ln -s $HOME/.profile/.bash_profile $HOME/.bash_profile
-ln -s $HOME/.profile/.vimrc $HOME/.vimrc
-ln -s $HOME/.profile/.spacemacs $HOME/.spacemacs
-ln -s $HOME/.profile/.inputrc $HOME/.inputrc
-ln -s $HOME/.profile/.irbrc $HOME/.irbrc
-ln -s $HOME/.profile/.gitignore_global $HOME/.gitignore_global
-ln -s $HOME/.profile/.gitconfig $HOME/.gitconfig
+cp $HOME/.profile/.bash_profile $HOME/.bash_profile
+cp $HOME/.profile/.vimrc $HOME/.vimrc
+cp $HOME/.profile/.spacemacs $HOME/.spacemacs
+cp $HOME/.profile/.inputrc $HOME/.inputrc
+cp $HOME/.profile/.irbrc $HOME/.irbrc
+cp $HOME/.profile/.gitignore_global $HOME/.gitignore_global
+cp $HOME/.profile/.gitconfig $HOME/.gitconfig
 
 # Sets global gitignore
 git config --global core.excludesfile $HOME/.gitignore_global
