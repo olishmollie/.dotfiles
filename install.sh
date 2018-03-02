@@ -13,6 +13,7 @@ cp $HOME/.profile/.inputrc $HOME/.inputrc
 cp $HOME/.profile/.irbrc $HOME/.irbrc
 cp $HOME/.profile/.gitignore_global $HOME/.gitignore_global
 cp $HOME/.profile/.gitconfig $HOME/.gitconfig
+cp $HOME/.profile/.bashrc $HOME/.bashrc
 
 # Sets global gitignore
 git config --global core.excludesfile $HOME/.gitignore_global

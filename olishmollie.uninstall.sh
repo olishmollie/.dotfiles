@@ -7,10 +7,11 @@ rm ~/.spacemacs
 rm ~/.vimrc
 rm ~/.irbrc
 rm ~/.inputrc
-rm .gitignore_global
-rm .gitconfig
+rm ~/.gitignore_global
+rm ~/.gitconfig
+rm ~/.bashrc
 
 rm -rf ~/.vim
-rm -rf .profile
+rm -rf ~/.profile
 
-rm olishmollie.uninstall.sh
+rm ~/olishmollie.uninstall.sh
