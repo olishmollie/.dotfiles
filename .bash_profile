@@ -35,9 +35,6 @@ if [ -d "$HOME/.timer" ]; then
   source /usr/local/etc/bash_completion.d/timer-completion.bash
 fi
 
-# Load private env variables
-source ~/.env
-
 function mkcd() {
   mkdir $1; cd $1;
 }
