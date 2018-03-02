@@ -12,4 +12,4 @@ rm .gitconfig
 rm -rf ~/.vim
 rm -rf .profile
 
-rm .olishmollie.uninstall.sh
+rm olishmollie.uninstall.sh
