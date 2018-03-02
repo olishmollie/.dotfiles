@@ -1,0 +1,16 @@
+[alias]		
+  co = checkout		
+  br = branch		
+  cob = checkout -b		
+  st = status		
+  undo = reset HEAD~1 --mixed		
+  conflicts = diff --name-only --diff-filter=U		
+[core]		
+	excludesfile = /Users/ajbond/.gitignore_global		
+	editor = vim		
+[format]		
+	pretty = oneline		
+[log]		
+	abbrevCommit = true		
+[github]		
+	username = olishmollie
