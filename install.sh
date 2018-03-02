@@ -5,7 +5,6 @@
 set -e
 
 cp -R .vim $HOME
-cp -R .emacs.d $HOME
 
 ln -s $HOME/.profile/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.profile/.vimrc $HOME/.vimrc
