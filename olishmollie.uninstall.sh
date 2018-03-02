@@ -3,6 +3,7 @@
 # Remove dotfiles, vim and git config
 
 rm ~/.bash_profile
+rm ~/.spacemacs
 rm ~/.vimrc
 rm ~/.irbrc
 rm ~/.inputrc
