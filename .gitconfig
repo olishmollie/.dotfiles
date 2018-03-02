@@ -6,11 +6,9 @@
   undo = reset HEAD~1 --mixed		
   conflicts = diff --name-only --diff-filter=U		
 [core]		
-	excludesfile = /Users/ajbond/.gitignore_global		
+	excludesfile = ~/.gitignore_global		
 	editor = vim		
 [format]		
 	pretty = oneline		
 [log]		
 	abbrevCommit = true		
-[github]		
-	username = olishmollie
