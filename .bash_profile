@@ -59,6 +59,11 @@ function gclonecd() {
   git clone "$1" && cd "$(basename "$1" .git)"
 }
 
+# Venv
+function venv_activate() {
+  . $1/bin/activate
+}
+
 # Postgres
 function pg_start() {
   eval "pg_ctl -D /usr/local/var/postgres start"
