@@ -7,6 +7,14 @@ alias e='emacsclient --no-wait'
 Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
 
+function add_venv_info() {
+  if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ]; then
+    if [ "$VIRTUAL_ENV" != "" ]; then
+      PS1="(`basename \"$VIRTUAL_ENV\"`) $PS1"
+    fi
+  fi
+}
+
 if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   source /usr/local/etc/bash_completion.d/git-prompt.sh
 
@@ -15,9 +23,9 @@ if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWSTASHSTATE=1
   GIT_PS1_SHOWUPSTREAM="auto"
-  PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; $PROMPT_COMMAND"
+  PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; add_venv_info; $PROMPT_COMMAND"
 else
-  export PS1="$Red\u$ColorReset \W :> "
+  export PS1="$Red\u$ColorReset \W :>"
 fi
 
 # git completion
