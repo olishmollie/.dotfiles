@@ -1,7 +1,7 @@
 # Default Editor
-export VISUAL=emacs
+export VISUAL=vim
 export EDITOR=$VISUAL
-alias e='emacsclient --no-wait'
+alias e='vim $1'
 
 # Prompt
 Red='\[\e[0;31m\]'
