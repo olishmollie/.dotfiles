@@ -68,6 +68,9 @@ Thumbs.db
 *.swp
 *.swo
 
+# VS Code #
+.vscode/
+
 # Ctags #
 #########
 tags
