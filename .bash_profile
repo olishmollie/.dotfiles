@@ -1,7 +1,7 @@
 # Default Editor
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR=$VISUAL
-alias e='vim $1'
+alias e='nvim $1'
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -88,8 +88,12 @@ if type "bundle" > /dev/null 2>&1; then
   alias be='bundle exec'
 fi
 
-if type "mvim" > /dev/null 2>&1; then
-  alias vim='mvim -v'
+# if type "mvim" > /dev/null 2>&1; then
+#   alias vim='mvim -v'
+# fi
+
+if type "nvim" > /dev/null 2>&1; then
+  alias vim='nvim'
 fi
 
 # Move to H: drive if on ACC windows computer
