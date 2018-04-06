@@ -101,3 +101,7 @@ if [ "-d /h" ] && [ "$(uname)" = "MINGW64_NT-6.1" ]; then
   cd /h
 fi
 
+# Set GOPATH and add go bin to PATH
+export GOPATH=$HOME/Code/Go
+export PATH=$PATH:$GOPATH/bin
+
