@@ -1,7 +1,10 @@
 # Default Editor
 export VISUAL=nvim
 export EDITOR=$VISUAL
-alias e='nvim $1'
+alias e='code $1'
+
+# CDPATH - cd directly into workspaces
+export CDPATH=$HOME/Workspaces
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -28,20 +31,8 @@ else
   export PS1="$Red\u$ColorReset \W :>"
 fi
 
-# git completion
-if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
-  source /usr/local/etc/bash_completion.d/git-completion.bash
-fi
-
-# tmuxinator completion
-if [ -d "~/.tmuxinator" ]; then
-  source ~/.tmuxinator.bash
-fi
-
-# timer completion
-if [ -d "$HOME/.timer" ]; then
-  source /usr/local/etc/bash_completion.d/timer-completion.bash
-fi
+# Source bash completions
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 function mkcd() {
   mkdir $1; cd $1;
@@ -102,6 +93,7 @@ if [ "-d /h" ] && [ "$(uname)" = "MINGW64_NT-6.1" ]; then
 fi
 
 # Set GOPATH and add go bin to PATH
-export GOPATH=$HOME/Code/Go
+export GOPATH=$HOME/Workspaces/Go
 export PATH=$PATH:$GOPATH/bin
+
 
