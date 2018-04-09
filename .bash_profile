@@ -96,4 +96,5 @@ fi
 export GOPATH=$HOME/Workspaces/Go
 export PATH=$PATH:$GOPATH/bin
 
-
+# Add rust executables to path
+export PATH="$HOME/.cargo/bin:$PATH"
