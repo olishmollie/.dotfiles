@@ -1,6 +1,6 @@
 # Default Editor
 export VISUAL=nvim
-export EDITOR=$VISUAL
+export EDITOR="vi -e"
 alias e='code $1'
 
 # CDPATH - cd directly into workspaces
@@ -93,7 +93,7 @@ if [ "-d /h" ] && [ "$(uname)" = "MINGW64_NT-6.1" ]; then
 fi
 
 # Set GOPATH and add go bin to PATH
-export GOPATH=$HOME/Workspaces/Go
+export GOPATH=$HOME/Workspaces/go
 export PATH=$PATH:$GOPATH/bin
 
 # Add rust executables to path
