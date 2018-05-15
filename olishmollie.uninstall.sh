@@ -1,17 +1,19 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-# Remove dotfiles, vim and git config
+# Remove dotfiles
 
-rm ~/.bash_profile
-rm ~/.spacemacs
-rm ~/.vimrc
-rm ~/.irbrc
-rm ~/.inputrc
-rm ~/.gitignore_global
-rm ~/.gitconfig
-rm ~/.bashrc
+rm $HOME/.bash_profile
+rm $HOME/.bashrc
+rm $HOME/.gitconfig
+rm $HOME/.gitignore_global
+rm $HOME/.inputrc
+rm $HOME/.irbrc
+rm $HOME/.spacemacs
+rm $HOME/.vimrc
 
-rm -rf ~/.vim
-rm -rf ~/.profile
+rm -rf $HOME/.config
+rm -rf $HOME/.dotfiles
+rm -rf $HOME/.passman
+rm -rf $HOME/.vim
 
-rm ~/olishmollie.uninstall.sh
+rm $HOME/olishmollie.uninstall.sh
