@@ -12,3 +12,8 @@
 	pretty = oneline		
 [log]		
 	abbrevCommit = true		
+[user]
+	name = ajbond
+	email = olishmollie@gmail.com
+[github]
+	username = olishmollie
