@@ -1,10 +1,10 @@
 # Default Editor
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR="vi -e"
 alias e='code $1'
 
-# CDPATH - cd directly into workspaces
-export CDPATH=$HOME/Workspaces
+# CDPATH - cd directly into dev
+export CDPATH=$HOME/dev
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -79,12 +79,12 @@ if type "bundle" > /dev/null 2>&1; then
   alias be='bundle exec'
 fi
 
-# if type "mvim" > /dev/null 2>&1; then
-#   alias vim='mvim -v'
-# fi
-
-if type "nvim" > /dev/null 2>&1; then
+if type "nvim" > /dev/null 2>&1
+then
   alias vim='nvim'
+elif type "mvim" > /dev/null 2>&1
+then
+  alias vim='mvim'
 fi
 
 # Move to H: drive if on ACC windows computer
@@ -93,8 +93,12 @@ if [ "-d /h" ] && [ "$(uname)" = "MINGW64_NT-6.1" ]; then
 fi
 
 # Set GOPATH and add go bin to PATH
-export GOPATH=$HOME/Workspaces/go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH=$HOME/dev/go
+export PATH=$GOPATH/bin:$PATH
 
 # Add rust executables to path
 export PATH="$HOME/.cargo/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/ajbond/.sdkman"
+[[ -s "/Users/ajbond/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ajbond/.sdkman/bin/sdkman-init.sh"
