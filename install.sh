@@ -6,7 +6,10 @@ set -e
 
 cp -R .vim $HOME
 cp -R .config $HOME
-cp -R .passman $HOME
+
+# Install passman directory
+mkdir $HOME/.passman
+cp .passman.lock~ $HOME/.passman/.passman.lock
 
 cp $HOME/.dotfiles/.bash_profile $HOME/.bash_profile
 cp $HOME/.dotfiles/.bashrc $HOME/.bashrc
