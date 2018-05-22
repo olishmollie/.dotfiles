@@ -34,11 +34,16 @@ xcuserdata/
 
 # Build Files/Folders #
 #######################
+build/
 node_modules/
 vendor/
 gradle/
+*.gradle
 CMakeLists.txt
 cmake-build-debug
+.settings/
+.project
+.classpath
 
 # Environment Variables #
 #########################
