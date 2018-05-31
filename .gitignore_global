@@ -34,20 +34,11 @@ xcuserdata/
 
 # Build Files/Folders #
 #######################
-build/
+.env
 node_modules/
 vendor/
-gradle/
-*.gradle
 CMakeLists.txt
 cmake-build-debug
-.settings/
-.project
-.classpath
-
-# Environment Variables #
-#########################
-.env
 
 # OS generated files #
 ######################
@@ -67,8 +58,5 @@ Thumbs.db
 *.swo
 .vscode/
 .idea/
-
-# Ctags #
-#########
 tags
 
