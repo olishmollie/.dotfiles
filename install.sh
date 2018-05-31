@@ -4,12 +4,12 @@
 
 set -e
 
-cp -R .vim $HOME
-cp -R .config $HOME
+cp -R $HOME/.dotfiles/.vim $HOME
+cp -R $HOME/.dotfiles/.config $HOME
 
 # Install passman
 mkdir $HOME/.passman
-cp pswds~ $HOME/.passman/.passman.lock
+cp $HOME/.dotfiles/pswds~ $HOME/.passman/.passman.lock
 
 cp $HOME/.dotfiles/.bash_profile $HOME/.bash_profile
 cp $HOME/.dotfiles/.bashrc $HOME/.bashrc
@@ -23,7 +23,7 @@ cp $HOME/.dotfiles/.vimrc $HOME/.vimrc
 # Set global gitignore
 git config --global core.excludesfile $HOME/.gitignore_global
 
-cp olishmollie.uninstall.sh $HOME
+cp $HOME/.dotfiles/olishmollie.uninstall.sh $HOME
 
 # Install vim plugins
 vim +PlugInstall +qall
