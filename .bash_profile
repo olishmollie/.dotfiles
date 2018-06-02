@@ -1,10 +1,7 @@
 # Default Editor
 export VISUAL=vim
-export EDITOR="vi -e"
+export EDITOR=vim
 alias e='code $1'
-
-# CDPATH - cd directly into dev
-export CDPATH=$HOME/dev
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -85,11 +82,6 @@ then
 elif type "mvim" > /dev/null 2>&1
 then
   alias vim='mvim'
-fi
-
-# Move to H: drive if on ACC windows computer
-if [ "-d /h" ] && [ "$(uname)" = "MINGW64_NT-6.1" ]; then
-  cd /h
 fi
 
 # Set GOPATH and add go bin to PATH
