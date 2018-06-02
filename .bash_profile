@@ -63,7 +63,6 @@ function pg_stop() {
 
 # Colors
 export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
 export GREP_OPTIONS='--color=always'
 
 # Auto-load rbenv
