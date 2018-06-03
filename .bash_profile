@@ -25,7 +25,7 @@ if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   GIT_PS1_SHOWUPSTREAM="auto"
   PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; add_venv_info; $PROMPT_COMMAND"
 else
-  export PS1="$Red\u$ColorReset \W :>"
+  export PS1="$Red\u$ColorReset \W:> "
 fi
 
 # Source bash completions
