@@ -1,7 +1,9 @@
 # Default Editor
 export VISUAL=vim
 export EDITOR=vim
-alias e='code $1'
+function e {
+  code "$1"
+}
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -10,7 +12,7 @@ ColorReset='\[\e[0m\]'
 function add_venv_info() {
   if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ]; then
     if [ "$VIRTUAL_ENV" != "" ]; then
-      PS1="(`basename \"$VIRTUAL_ENV\"`) $PS1"
+      PS1="($(basename "$VIRTUAL_ENV")) $PS1"
     fi
   fi
 }
@@ -32,7 +34,8 @@ fi
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 function mkcd() {
-  mkdir $1; cd $1;
+  mkdir "$1"
+  cd "$1" || return
 }
 
 function restart() {
@@ -40,16 +43,16 @@ function restart() {
 }
 
 function serve() {
-  ruby -run -e httpd $1 -p $2
+  ruby -run -e httpd "$1" -p "$2"
 }
 
 function gclonecd() {
-  git clone "$1" && cd "$(basename "$1" .git)"
+  git clone "$1" && (cd "$(basename "$1" .git)" || return)
 }
 
 # Venv
 function venv_activate() {
-  . $1/bin/activate
+  . "$1/bin/activate"
 }
 
 # Postgres
