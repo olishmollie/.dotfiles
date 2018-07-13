@@ -51,7 +51,12 @@ function gclonecd() {
 }
 
 # Venv
-function venv_activate() {
+function venv() {
+  python3 -m venv "$1"
+  . "$1/bin/activate"
+}
+
+function venvup() {
   . "$1/bin/activate"
 }
 
@@ -67,16 +72,6 @@ function pg_stop() {
 # Colors
 export CLICOLOR=1
 export GREP_OPTIONS='--color=always'
-
-# Auto-load rbenv
-if type "rbenv" > /dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
-
-# Auto-load pyenv
-if type "pyenv" > /dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 # Aliases/functions
 if type "bundle" > /dev/null 2>&1; then
@@ -98,6 +93,16 @@ export PATH=$GOPATH/bin:$PATH
 # Add rust executables to path
 export PATH="$HOME/.cargo/bin:$PATH"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# Set path for sdkman
 export SDKMAN_DIR="/Users/ajbond/.sdkman"
 [[ -s "/Users/ajbond/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ajbond/.sdkman/bin/sdkman-init.sh"
+
+# Auto-load rbenv
+if type "rbenv" > /dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
+
+# Auto-load pyenv
+if type "pyenv" > /dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
