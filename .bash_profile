@@ -73,6 +73,11 @@ if type "rbenv" > /dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 
+# Auto-load pyenv
+if type "pyenv" > /dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # Aliases/functions
 if type "bundle" > /dev/null 2>&1; then
   alias be='bundle exec'
