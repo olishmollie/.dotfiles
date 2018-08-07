@@ -39,6 +39,7 @@ node_modules/
 vendor/
 CMakeLists.txt
 cmake-build-debug
+*.dSYM
 
 # OS generated files #
 ######################
