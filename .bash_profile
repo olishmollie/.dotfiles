@@ -56,7 +56,7 @@ function venv() {
   . "$1/bin/activate"
 }
 
-function venvup() {
+function venv_up() {
   . "$1/bin/activate"
 }
 
@@ -106,3 +106,6 @@ fi
 if type "pyenv" > /dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# added by Anaconda3 5.2.0 installer
+export PATH="/Users/ajbond/anaconda3/bin:$PATH"
