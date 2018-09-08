@@ -41,7 +41,6 @@ Plug 'isruslan/vim-es6'
 Plug 'leafgarland/typescript-vim'
 Plug 'keith/swift.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 silent! colo obsidian
