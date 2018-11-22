@@ -5,6 +5,9 @@ function e {
   code "$1"
 }
 
+# Emacs
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+
 # Prompt
 Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
