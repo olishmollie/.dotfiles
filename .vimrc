@@ -26,20 +26,16 @@ set t_ti= t_te=
 let loaded_matchparen=1
 
 call plug#begin('~/.vim/plugged')
-Plug 'ajh17/VimCompletesMe'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
 Plug 'itchyny/lightline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'isruslan/vim-es6'
-Plug 'leafgarland/typescript-vim'
-Plug 'keith/swift.vim'
 Plug 'Raimondi/delimitMate'
 call plug#end()
 
