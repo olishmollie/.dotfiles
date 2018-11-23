@@ -22,6 +22,9 @@ autocmd FileType py setlocal softtabstop=4
 " Do not clear screen on exit
 set t_ti= t_te=
 
+"Unset the last search pattern register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
 " Kill matching paren
 let loaded_matchparen=1
 
