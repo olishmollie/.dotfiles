@@ -29,6 +29,7 @@ nnoremap <CR> :noh<CR><CR>
 let loaded_matchparen=1
 
 call plug#begin('~/.vim/plugged')
+Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
@@ -41,7 +42,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
 call plug#end()
 
-silent! colo obsidian
+silent! colo benokai
 
 " Syntastic
 set statusline+=%#warningmsg#
