@@ -1,12 +1,6 @@
 # Default Editor
-export VISUAL=vim
-export EDITOR=vim
-function e {
-  code "$1"
-}
-
-# Emacs
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+export VISUAL=emacs
+export EDITOR=emacs
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -81,6 +75,7 @@ if type "bundle" > /dev/null 2>&1; then
   alias be='bundle exec'
 fi
 
+# Use nvim if available, otherwise mvim
 if type "nvim" > /dev/null 2>&1
 then
   alias vim='nvim'
