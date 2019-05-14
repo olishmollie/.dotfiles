@@ -1,6 +1,6 @@
 # Default Editor
-export VISUAL=emacs
-export EDITOR=emacs
+export VISUAL=vi
+export EDITOR=vi
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -35,18 +35,6 @@ function mkcd() {
   cd "$1" || return
 }
 
-function restart() {
-  exec -l bash
-}
-
-function serve() {
-  ruby -run -e httpd "$1" -p "$2"
-}
-
-function gclonecd() {
-  git clone "$1" && (cd "$(basename "$1" .git)" || return)
-}
-
 # Venv
 function venv() {
   python3 -m venv "$1"
@@ -57,13 +45,8 @@ function venv_up() {
   . "$1/bin/activate"
 }
 
-# Postgres
-function pg_start() {
-  eval "pg_ctl -D /usr/local/var/postgres start"
-}
-
-function pg_stop() {
-  eval "pg_ctl -D /usr/local/var/postgres stop"
+function winplot() {
+	wine ~/.wine/drive_c/peanut/winplot.exe
 }
 
 # Colors
@@ -84,26 +67,11 @@ then
   alias vim='mvim'
 fi
 
-# Set GOPATH and add go bin to PATH
-export GOPATH=$HOME/dev/go
-export PATH=$GOPATH/bin:$PATH
-
 # Add rust executables to path
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# Set path for sdkman
-export SDKMAN_DIR="/Users/ajbond/.sdkman"
-[[ -s "/Users/ajbond/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ajbond/.sdkman/bin/sdkman-init.sh"
 
 # Auto-load rbenv
 if type "rbenv" > /dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 
-# Auto-load pyenv
-if type "pyenv" > /dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# added by Anaconda3 5.2.0 installer
-export PATH="/Users/ajbond/anaconda3/bin:$PATH"
