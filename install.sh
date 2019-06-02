@@ -6,15 +6,11 @@ set -e
 
 echo "Copying dotfiles..."
 cp -R "$HOME/.dotfiles/.vim" "$HOME"
-cp -R "$HOME/.dotfiles/.config" "$HOME"
-
 cp "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
 cp "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 cp "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
 cp "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 cp "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
-cp "$HOME/.dotfiles/.irbrc" "$HOME/.irbrc"
-cp "$HOME/.dotfiles/.spacemacs" "$HOME/.spacemacs"
 cp "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
 
 echo "Copying uninstall script"
