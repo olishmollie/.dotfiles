@@ -45,5 +45,8 @@ echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
 
 echo "Installation complete. Restart terminal to see changes."
-echo "To uninstall, run `~/profile.uninstall.sh`"
+
+# WARNING: The next line must be in raw ('') quotes
+echo 'To uninstall, run `~/profile.uninstall.sh`'
+
 echo ""
