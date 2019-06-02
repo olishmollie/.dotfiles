@@ -20,12 +20,7 @@ else
 fi
 
 # Source bash completions
-COMPLETIONS="/usr/local/etc/bash_completion.d/"
-if [ -d $COMPLETIONS ]; then
-  for f in $COMPLETIONS/*; do source $f; done
-else
-  echo "Unable to source bash completions -- $COMPLETIONS does not exist"
-fi
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 function mkcd() {
   mkdir "$1"
