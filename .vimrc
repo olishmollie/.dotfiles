@@ -3,10 +3,11 @@ set softtabstop=2
 set switchbuf=usetab,useopen
 set wildchar=<Tab> wildmenu wildmode=full
 set ttimeoutlen=50
+
 set visualbell
 set noshowmode
 set number
-set noic
+set nomodeline
 
 set ignorecase
 set laststatus=2
