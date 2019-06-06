@@ -15,7 +15,7 @@ then
     rm -rf "$HOME/.passman"
     rm -rf "$HOME/.vim"
 
-    echo "Uinstalling Homebrew..."
+    echo "Uninstalling Homebrew..."
     yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
     echo "Uninstalling Rust..."
