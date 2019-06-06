@@ -6,7 +6,6 @@ set -e
 
 echo "Copying dotfiles..."
 cp -R "$HOME/.dotfiles/.vim" "$HOME"
-cp -R "$HOME/.dotfiles/.vscode" "$HOME"
 cp "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
 cp "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 cp "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
