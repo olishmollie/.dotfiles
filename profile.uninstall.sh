@@ -11,9 +11,12 @@ then
     rm "$HOME/.gitignore_global"
     rm "$HOME/.inputrc"
     rm "$HOME/.vimrc"
+    rm "$HOME/Library/Application Support/Code/User/settings.json"
+    rm "$HOME/Library/Application Support/Code/User/keybindings.json"
     rm -rf "$HOME/.dotfiles"
     rm -rf "$HOME/.passman"
     rm -rf "$HOME/.vim"
+    rm -rf "$HOME/.vscode"
 
     echo "Uninstalling Homebrew..."
     yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
