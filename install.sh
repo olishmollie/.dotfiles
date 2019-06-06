@@ -28,6 +28,7 @@ yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/
 brew install bash
 brew install git
 brew install go
+brew install python
 brew install olishmollie/tools/fig
 brew install olishmollie/tools/nconv
 brew install olishmollie/tools/passman
