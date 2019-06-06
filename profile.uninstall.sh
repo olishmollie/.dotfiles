@@ -16,7 +16,6 @@ then
     rm -rf "$HOME/.dotfiles"
     rm -rf "$HOME/.passman"
     rm -rf "$HOME/.vim"
-    rm -rf "$HOME/.vscode"
 
     echo "Uninstalling Homebrew..."
     yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
