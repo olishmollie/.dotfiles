@@ -5,15 +5,14 @@
 set -e
 
 echo "Copying dotfiles..."
-cp -R "$HOME/.dotfiles/.vim" "$HOME"
+cp -R "$HOME/.dotfiles/.vim/" "$HOME"
+cp -R "$HOME/.emacs.d/" "$HOME"
 cp "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
 cp "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 cp "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
 cp "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 cp "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
 cp "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
-cp "$HOME/.dotfiles/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
-cp "$HOME/.dotfiles/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 
 echo "Copying uninstall script"
 cp "$HOME/.dotfiles/profile.uninstall.sh" "$HOME"
@@ -31,6 +30,8 @@ brew install bash
 brew install git
 brew install go
 brew install python
+brew install emacs
+brew install clang-format
 brew install olishmollie/tools/fig
 brew install olishmollie/tools/nconv
 brew install olishmollie/tools/passman
