@@ -9,6 +9,21 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+;; Automatically install missing packages
+;; TODO - use package-activated-list to uninstall
+;; any packages not in "packages".
+(let ((packages
+       '(shell-pop
+	 evil
+	 magit))
+      (refreshed? nil))
+  (dolist (package packages)
+    (unless (package-installed-p package)
+      (when (null refreshed?)
+	(package-refresh-contents)
+	(setq refreshed? t))
+      (package-install package))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
