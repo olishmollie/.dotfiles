@@ -9,27 +9,32 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-;; Automatically install missing packages
-;; TODO - use package-activated-list to uninstall
-;; any packages not in "packages".
-(let ((packages
-       '(shell-pop
-	 evil
-	 magit))
-      (refreshed? nil))
-  (dolist (package packages)
-    (unless (package-installed-p package)
-      (when (null refreshed?)
-	(package-refresh-contents)
-	(setq refreshed? t))
-      (package-install package))))
+;; Install any missing packages.
+(let ((refreshed? nil))
+  (dolist (p package-selected-packages)
+    (unless (package-installed-p p)
+	(when (null refreshed?)
+	  (package-refresh-contents))
+	(package-install p))))
+
+;; Init packages.
+(eval-when-compile
+  (require 'use-package))
+
+(use-package shell-pop)
+(use-package magit)
+(use-package go-mode)
+(use-package flycheck
+  :init (global-flycheck-mode))
+(use-package evil
+  :init (evil-mode 1))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (shell-pop evil magit)))
+ '(package-selected-packages (quote (go-mode use-package shell-pop evil magit)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
@@ -42,6 +47,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(require 'evil)
-(evil-mode t)
