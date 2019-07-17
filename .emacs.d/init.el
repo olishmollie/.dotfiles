@@ -23,7 +23,7 @@
 (eval-when-compile
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
-    (install-package 'use-package))
+    (package-install 'use-package))
   (require 'use-package)
   (setq use-package-always-ensure t))
 
