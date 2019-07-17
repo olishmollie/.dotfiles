@@ -62,3 +62,4 @@
 ;; Built-in config
 (electric-pair-mode t)
 (add-hook 'c-mode-common-hook #'c-mode-init)
+(global-display-line-numbers-mode t)
