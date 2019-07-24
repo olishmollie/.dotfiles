@@ -52,4 +52,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Set main go directory
 export GOPATH=$HOME/Dev/go
+# Add GO bin to path
+export PATH="$GOPATH/bin:$PATH"
 
