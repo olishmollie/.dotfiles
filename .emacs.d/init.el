@@ -14,7 +14,13 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook #'gofmt-before-save))
 
-;; Built-in config
+(defun python-mode-init ()
+  "Initialize python mode."
+  (setq tab-width 4)
+  (setq elpy-rpc-python-command "python3")
+  (add-hook 'before-save-hook #'elpy-black-fix-code))
+
+;; Basic config
 (electric-pair-mode t)
 (add-hook 'c-mode-common-hook #'c-mode-init)
 (global-display-line-numbers-mode t)
@@ -32,21 +38,36 @@
   (require 'use-package)
   (setq use-package-always-ensure t))
 
+
+(use-package elpy
+  :init
+  (use-package py-autopep8)
+
+  (elpy-enable)
+  (add-hook 'elpy-mode-hook 'python-mode-init))
+
 (use-package projectile
   :init (projectile-mode 1))
+
 (use-package smart-tab
   :init (global-smart-tab-mode t))
+
 (use-package shell-pop)
+
 (use-package magit
   :init (global-set-key (kbd "C-x g") 'magit-status))
+
 (use-package zenburn-theme
   :init (load-theme 'zenburn t))
+
 (use-package flycheck
   :init
   (global-flycheck-mode)
   (setq flycheck-python-pycompile-executable "python3"))
+
 (use-package go-mode
   :init (add-hook 'go-mode-hook #'go-mode-init))
+
 (use-package evil
   :init
   (evil-mode t)
@@ -63,7 +84,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (projectile smart-tab evil-magit evil-commentary zenburn-theme flycheck go-mode use-package shell-pop magit)))
+    (elpy projectile smart-tab evil-magit evil-commentary zenburn-theme flycheck go-mode use-package shell-pop magit)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
