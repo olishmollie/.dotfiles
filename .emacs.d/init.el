@@ -42,6 +42,8 @@
   (require 'use-package)
   (setq use-package-always-ensure t))
 
+(use-package auctex
+  :defer t)
 (use-package smart-tab
   :init
   (global-smart-tab-mode t))
@@ -60,8 +62,7 @@
 (use-package evil
   :init
   (evil-mode t)
-  (evil-set-initial-state 'term-mode 'emacs)
-  
+    (setq term-char-mode-point-at-process-mark nil) 
     (use-package evil-magit)
     (use-package evil-commentary
       :init (evil-commentary-mode t)))
@@ -73,7 +74,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (clang-format projectile smart-tab evil evil-magit evil-commentary zenburn-theme flycheck go-mode use-package shell-pop magit)))
+    (auctex clang-format projectile smart-tab evil evil-magit evil-commentary zenburn-theme flycheck go-mode use-package shell-pop magit)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
@@ -85,5 +86,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
-
+ ) 
