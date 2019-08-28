@@ -49,7 +49,7 @@
   (setq use-package-always-ensure t))
 
 (use-package elpy
-  :initn
+  :init
   (use-package py-autopep8)
 
   (elpy-enable)
