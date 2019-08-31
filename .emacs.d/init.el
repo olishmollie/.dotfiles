@@ -27,6 +27,10 @@
   (setq elpy-rpc-python-command "python3")
   (add-hook 'before-save-hook #'elpy-black-fix-code))
 
+(defun tex-mode-init ()
+  "Initialize tex mode."
+  (setq tab-width 2))
+
 ;; Basic config
 (electric-pair-mode t)
 (setq make-backup-files nil)
@@ -47,6 +51,10 @@
     (package-install 'use-package))
   (require 'use-package)
   (setq use-package-always-ensure t))
+
+(use-package auctex
+  :init (add-hook 'tex-mode-hook 'tex-mode-init)
+  :defer t)
 
 (use-package elpy
   :init
