@@ -5,9 +5,9 @@
 
 (defun asm-mode-init ()
   "Initialize asm mode."
-    (setq tab-width 4)
-    (setq indent-line-function 'insert-tab)
-    (setq asm-indent-level 4))
+  (setq tab-width 4)
+  (setq indent-line-function 'insert-tab)
+  (setq asm-indent-level 4))
 
 (defun c-mode-init ()
   "Initialize cc mode."
@@ -32,6 +32,7 @@
   (setq tab-width 2))
 
 ;; Basic config
+(setq visible-bell nil ring-bell-function 'ignore)
 (tool-bar-mode -1)
 (electric-pair-mode t)
 (setq make-backup-files nil)
@@ -48,7 +49,7 @@
 
 (eval-when-compile
   (unless (package-installed-p 'use-package)
-   (package-refresh-contents)
+    (package-refresh-contents)
     (package-install 'use-package))
   (require 'use-package)
   (setq use-package-always-ensure t))
@@ -92,10 +93,10 @@
 (use-package evil
   :init
   (evil-mode t)
-    (setq term-char-mode-point-at-process-mark nil) 
-    (use-package evil-magit)
-    (use-package evil-commentary
-      :init (evil-commentary-mode t)))
+  (setq term-char-mode-point-at-process-mark nil) 
+  (use-package evil-magit)
+  (use-package evil-commentary
+    :init (evil-commentary-mode t)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -117,4 +118,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
- 
+
