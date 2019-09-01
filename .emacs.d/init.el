@@ -4,19 +4,19 @@
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (defun asm-mode-init ()
-  "Initializes asm-mode."
+  "Initialize asm mode."
     (setq tab-width 4)
     (setq indent-line-function 'insert-tab)
     (setq asm-indent-level 4))
 
 (defun c-mode-init ()
-  "Initializes cc-mode."
+  "Initialize cc mode."
   (local-set-key (kbd "C-c C-f") 'clang-format-buffer)
   (setq c-default-style "k&r")
   (setq c-basic-offset 4))
 
 (defun go-mode-init ()
-  "Initializes go-mode."
+  "Initialize go mode."
   (setq tab-width 4)
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook #'gofmt-before-save))
@@ -32,6 +32,7 @@
   (setq tab-width 2))
 
 ;; Basic config
+(tool-bar-mode -1)
 (electric-pair-mode t)
 (setq make-backup-files nil)
 (add-hook 'c-mode-common-hook #'c-mode-init)
@@ -51,6 +52,9 @@
     (package-install 'use-package))
   (require 'use-package)
   (setq use-package-always-ensure t))
+
+(use-package exec-path-from-shell
+  :init (exec-path-from-shell-initialize))
 
 (use-package auctex
   :init (add-hook 'tex-mode-hook 'tex-mode-init)
@@ -100,16 +104,17 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (auctex clang-format projectile smart-tab evil evil-magit evil-commentary zenburn-theme flycheck go-mode use-package shell-pop magit)))
+    (exec-path-from-shell auctex clang-format projectile smart-tab evil evil-magit evil-commentary zenburn-theme flycheck go-mode use-package shell-pop magit)))
  '(shell-pop-shell-type
    (quote
     ("ansi-term" "*ansi-term*"
      (lambda nil
        (ansi-term shell-pop-term-shell)))))
- '(shell-pop-universal-key "C-t"))
+ '(shell-pop-universal-key "C-'"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ) 
+ )
+ 
