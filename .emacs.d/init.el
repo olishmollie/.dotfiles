@@ -92,15 +92,7 @@
 (use-package monokai-theme
   :init (load-theme 'monokai t))
 
-;; (use-package projectile
-;;   :init (projectile-mode 1))
-
-;; (use-package smart-tab
-;;   :init (global-smart-tab-mode t))
-
 (use-package shell-pop)
-
-;; (use-package zenburn-theme)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
