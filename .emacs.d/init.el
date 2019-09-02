@@ -31,6 +31,9 @@
   "Initialize tex mode."
   (setq tab-width 2))
 
+(defun vterm-mode-init ()
+  (display-line-numbers-mode 0))
+
 ;; Basic config
 (setq visible-bell nil ring-bell-function 'ignore)
 (tool-bar-mode -1)
@@ -38,6 +41,7 @@
 (setq make-backup-files nil)
 (add-hook 'c-mode-common-hook #'c-mode-init)
 (add-hook 'asm-mode-hook #'asm-mode-init)
+(add-hook 'vterm-mode-hook #'vterm-mode-init)
 (global-display-line-numbers-mode t)
 (global-auto-revert-mode t)
 
@@ -70,10 +74,11 @@
 (use-package evil
   :init
   (evil-mode t)
-    (setq term-char-mode-point-at-process-mark nil) 
-    (use-package evil-magit)
-    (use-package evil-commentary
-      :init (evil-commentary-mode t)))
+  (evil-set-initial-state 'vterm-mode 'emacs)
+  (setq term-char-mode-point-at-process-mark nil)
+  (use-package evil-magit)
+  (use-package evil-commentary
+    :init (evil-commentary-mode t)))
 
 (use-package exec-path-from-shell
   :init (exec-path-from-shell-initialize))
