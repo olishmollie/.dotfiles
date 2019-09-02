@@ -5,9 +5,9 @@
 
 (defun asm-mode-init ()
   "Initialize asm mode."
-    (setq tab-width 4)
-    (setq indent-line-function 'insert-tab)
-    (setq asm-indent-level 4))
+  (setq tab-width 4)
+  (setq indent-line-function 'insert-tab)
+  (setq asm-indent-level 4))
 
 (defun c-mode-init ()
   "Initialize cc mode."
@@ -32,6 +32,7 @@
   (setq tab-width 2))
 
 ;; Basic config
+(setq visible-bell nil ring-bell-function 'ignore)
 (tool-bar-mode -1)
 (electric-pair-mode t)
 (setq make-backup-files nil)
@@ -46,15 +47,15 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+(add-to-list 'load-path "~/.emacs.d/emacs-libvterm")
+(require 'vterm)
+
 (eval-when-compile
   (unless (package-installed-p 'use-package)
-   (package-refresh-contents)
+    (package-refresh-contents)
     (package-install 'use-package))
   (require 'use-package)
   (setq use-package-always-ensure t))
-
-(use-package exec-path-from-shell
-  :init (exec-path-from-shell-initialize))
 
 (use-package auctex
   :init (add-hook 'tex-mode-hook 'tex-mode-init)
@@ -63,31 +64,8 @@
 (use-package elpy
   :init
   (use-package py-autopep8)
-
   (elpy-enable)
   (add-hook 'elpy-mode-hook 'python-mode-init))
-
-(use-package projectile
-  :init (projectile-mode 1))
-
-(use-package smart-tab
-  :init (global-smart-tab-mode t))
-
-(use-package shell-pop)
-
-(use-package magit
-  :init (global-set-key (kbd "C-x g") 'magit-status))
-
-(use-package zenburn-theme
-  :init (load-theme 'zenburn t))
-
-(use-package flycheck
-  :init
-  (global-flycheck-mode)
-  (setq flycheck-python-pycompile-executable "python3"))
-
-(use-package go-mode
-  :init (add-hook 'go-mode-hook #'go-mode-init))
 
 (use-package evil
   :init
@@ -97,6 +75,33 @@
     (use-package evil-commentary
       :init (evil-commentary-mode t)))
 
+(use-package exec-path-from-shell
+  :init (exec-path-from-shell-initialize))
+
+(use-package flycheck
+  :init
+  (global-flycheck-mode)
+  (setq flycheck-python-pycompile-executable "python3"))
+
+(use-package go-mode
+  :init (add-hook 'go-mode-hook #'go-mode-init))
+
+(use-package magit
+  :init (global-set-key (kbd "C-x g") 'magit-status))
+
+(use-package monokai-theme
+  :init (load-theme 'monokai t))
+
+;; (use-package projectile
+;;   :init (projectile-mode 1))
+
+;; (use-package smart-tab
+;;   :init (global-smart-tab-mode t))
+
+(use-package shell-pop)
+
+;; (use-package zenburn-theme)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -104,12 +109,12 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (exec-path-from-shell auctex clang-format projectile smart-tab evil evil-magit evil-commentary zenburn-theme flycheck go-mode use-package shell-pop magit)))
+    (monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
  '(shell-pop-shell-type
    (quote
-    ("ansi-term" "*ansi-term*"
+    ("vterm" "*vterm*"
      (lambda nil
-       (ansi-term shell-pop-term-shell)))))
+       (vterm shell-pop-term-shell)))))
  '(shell-pop-universal-key "C-'"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -117,4 +122,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
- 
+
