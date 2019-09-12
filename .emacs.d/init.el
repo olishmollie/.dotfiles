@@ -34,6 +34,9 @@
 (defun vterm-mode-init ()
   (display-line-numbers-mode 0))
 
+;; Start emacsclient server
+(server-start)
+
 ;; Basic config
 (setq visible-bell nil ring-bell-function 'ignore)
 (tool-bar-mode -1)
@@ -64,6 +67,8 @@
 (use-package auctex
   :init (add-hook 'tex-mode-hook 'tex-mode-init)
   :defer t)
+
+(use-package clang-format)
 
 (use-package elpy
   :init
