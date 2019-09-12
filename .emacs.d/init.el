@@ -34,12 +34,10 @@
 (defun vterm-mode-init ()
   (display-line-numbers-mode 0))
 
-;; Start emacsclient server
-(server-start)
-
 ;; Basic config
 (setq visible-bell nil ring-bell-function 'ignore)
 (tool-bar-mode -1)
+(menu-bar-mode -1)
 (electric-pair-mode t)
 (setq make-backup-files nil)
 (add-hook 'c-mode-common-hook #'c-mode-init)
@@ -117,7 +115,7 @@
     ("vterm" "*vterm*"
      (lambda nil
        (vterm shell-pop-term-shell)))))
- '(shell-pop-universal-key "C-'"))
+ '(shell-pop-universal-key "M-'"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
