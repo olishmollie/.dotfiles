@@ -34,7 +34,7 @@
 (defun vterm-mode-init ()
   (display-line-numbers-mode 0))
 
-;; Basic config
+;; Add mode hooks
 (add-hook 'c-mode-common-hook #'c-mode-init)
 (add-hook 'asm-mode-hook #'asm-mode-init)
 (add-hook 'vterm-mode-hook #'vterm-mode-init)
