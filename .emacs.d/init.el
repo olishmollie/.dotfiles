@@ -35,7 +35,6 @@
   (display-line-numbers-mode 0))
 
 ;; Basic config
-(setq visible-bell nil ring-bell-function 'ignore)
 (add-hook 'c-mode-common-hook #'c-mode-init)
 (add-hook 'asm-mode-hook #'asm-mode-init)
 (add-hook 'vterm-mode-hook #'vterm-mode-init)
@@ -110,6 +109,7 @@
  '(package-selected-packages
    (quote
     (monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
+ '(ring-bell-function (quote ignore))
  '(shell-pop-shell-type
    (quote
     ("vterm" "*vterm*"
