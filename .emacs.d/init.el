@@ -36,15 +36,9 @@
 
 ;; Basic config
 (setq visible-bell nil ring-bell-function 'ignore)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(electric-pair-mode t)
-(setq make-backup-files nil)
 (add-hook 'c-mode-common-hook #'c-mode-init)
 (add-hook 'asm-mode-hook #'asm-mode-init)
 (add-hook 'vterm-mode-hook #'vterm-mode-init)
-(global-display-line-numbers-mode t)
-(global-auto-revert-mode t)
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -107,6 +101,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(electric-pair-mode t)
+ '(global-auto-revert-mode t)
+ '(global-display-line-numbers-mode t)
+ '(indent-tabs-mode nil)
+ '(make-backup-files nil)
+ '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
     (monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
@@ -115,7 +115,8 @@
     ("vterm" "*vterm*"
      (lambda nil
        (vterm shell-pop-term-shell)))))
- '(shell-pop-universal-key "M-'"))
+ '(shell-pop-universal-key "M-'")
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
