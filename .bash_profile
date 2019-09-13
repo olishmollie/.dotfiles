@@ -1,6 +1,6 @@
 # Default Editor
 export VISUAL=emacs
-export EDITOR=emacs
+export EDITOR=vi -e
 
 # Prompt
 Red='\[\e[0;31m\]'
