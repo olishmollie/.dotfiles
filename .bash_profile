@@ -1,11 +1,12 @@
 # Default Editor
-export VISUAL=vim
-export EDITOR=vim
+export VISUAL=emacs
+export EDITOR=emacs
 
 # Prompt
 Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
 
+# Configure git awareness
 if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   source /usr/local/etc/bash_completion.d/git-prompt.sh
 
@@ -19,23 +20,20 @@ else
   export PS1="$Red\u$ColorReset \W:> "
 fi
 
+export CLICOLOR=1
+export GREP_OPTIONS='--color=always'
+
+# Set main go directory
+export GOPATH=$HOME/Dev/go
+
 # Source bash completions
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-function mkcd() {
-  mkdir "$1"
-  cd "$1" || return
-}
+# Path configuration
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
 
-function venv() {
-  python3 -m venv "$1"
-  . "$1/bin/activate"
-}
-
-function venv_up() {
-  . "$1/bin/activate"
-}
-
+# Needed for venv aware prompt
 function venv_info() {
   if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ]; then
     if [ "$VIRTUAL_ENV" != "" ]; then
@@ -44,12 +42,6 @@ function venv_info() {
   fi
 }
 
-export CLICOLOR=1
-export GREP_OPTIONS='--color=always'
-
-# Add rust executables to path
-export PATH="$HOME/.cargo/bin:$PATH"
-# Set main go directory
-export GOPATH=$HOME/Dev/go
-# Add GO bin to path
-export PATH="$GOPATH/bin:$PATH"
+function emacs() {
+    emacsclient $*
+}
