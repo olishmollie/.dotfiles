@@ -43,5 +43,5 @@ function venv_info() {
 }
 
 function emacs() {
-    emacsclient -c -a="" $*
+    emacsclient -a="" $*
 }
