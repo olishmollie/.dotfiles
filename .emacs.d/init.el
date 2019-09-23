@@ -38,6 +38,7 @@
 (add-hook 'c-mode-common-hook #'c-mode-init)
 (add-hook 'asm-mode-hook #'asm-mode-init)
 (add-hook 'vterm-mode-hook #'vterm-mode-init)
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -108,7 +109,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
+    (rust-mode monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
  '(ring-bell-function (quote ignore))
  '(shell-pop-shell-type
    (quote
