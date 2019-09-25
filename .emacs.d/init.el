@@ -57,22 +57,30 @@
   (setq use-package-always-ensure t))
 
 (use-package auctex
-  :init (add-hook 'tex-mode-hook 'tex-mode-init)
+  :hook
+  (tex-mode-hook . tex-mode-init)
   :defer t)
 
 (use-package clang-format)
 
+(use-package company
+  :hook
+  (after-init . global-company-mode)
+  :bind (:map company-active-map
+              ("C-n" . company-select-next-or-abort)
+              ("C-p" . company-select-previous-or-abort)))
+
 (use-package elpy
+  :hook
+  (elpy-mode-hook . python-mode-init)
   :init
   (use-package py-autopep8)
-  (elpy-enable)
-  (add-hook 'elpy-mode-hook 'python-mode-init))
+  (elpy-enable))
 
 (use-package evil
   :init
   (evil-mode t)
   (evil-set-initial-state 'vterm-mode 'emacs)
-  (setq term-char-mode-point-at-process-mark nil)
   (use-package evil-magit)
   (use-package evil-commentary
     :init (evil-commentary-mode t)))
@@ -86,10 +94,11 @@
   (setq flycheck-python-pycompile-executable "python3"))
 
 (use-package go-mode
-  :init (add-hook 'go-mode-hook #'go-mode-init))
+  :hook
+  (go-mode-hook . go-mode-init))
 
 (use-package magit
-  :init (global-set-key (kbd "C-x g") 'magit-status))
+  :bind ("C-x g" . magit-status))
 
 (use-package monokai-theme
   :init (load-theme 'monokai t))
@@ -109,7 +118,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (rust-mode monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
+    (py-autopep8 elpy company rust-mode monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
  '(ring-bell-function (quote ignore))
  '(shell-pop-shell-type
    (quote
