@@ -31,6 +31,11 @@
   "Initialize tex mode."
   (setq tab-width 2))
 
+(defun verilog-mode-init ()
+  "Initialize verilog mode."
+  (setq verilog-auto-newline nil)
+  (setq verilog-tab-always-indent nil))
+
 (defun vterm-mode-init ()
   (display-line-numbers-mode 0))
 
@@ -39,6 +44,8 @@
 (add-hook 'asm-mode-hook #'asm-mode-init)
 (add-hook 'vterm-mode-hook #'vterm-mode-init)
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
+(add-hook 'after-init-hook #'global-company-mode)
+(add-hook 'verilog-mode-hook #'verilog-mode-init)
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -64,8 +71,6 @@
 (use-package clang-format)
 
 (use-package company
-  :hook
-  (after-init . global-company-mode)
   :bind (:map company-active-map
               ("C-n" . company-select-next-or-abort)
               ("C-p" . company-select-previous-or-abort)))
@@ -110,6 +115,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-revert-use-notify nil)
  '(electric-pair-mode t)
  '(global-auto-revert-mode t)
  '(global-display-line-numbers-mode t)
