@@ -1,6 +1,10 @@
+function emacs() {
+    emacsclient -a="" $*
+}
+
 # Default Editor
 export VISUAL=emacs
-export EDITOR="vi -e"
+export EDITOR=emacs
 
 # Prompt
 Red='\[\e[0;31m\]'
@@ -40,8 +44,4 @@ function venv_info() {
       PS1="($(basename "$VIRTUAL_ENV")) $PS1"
     fi
   fi
-}
-
-function emacs() {
-    emacsclient -a="" $*
 }
