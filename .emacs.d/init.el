@@ -126,6 +126,7 @@
    (quote
     (py-autopep8 elpy company rust-mode monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
  '(ring-bell-function (quote ignore))
+ '(safe-local-variable-values (quote ((flycheck-gcc-language-standard . c++11))))
  '(shell-pop-shell-type
    (quote
     ("vterm" "*vterm*"
