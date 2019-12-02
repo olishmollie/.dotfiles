@@ -25,7 +25,7 @@
   "Initialize python mode."
   (setq tab-width 4)
   (setq elpy-rpc-python-command "python3")
-  (add-hook 'before-save-hook #'elpy-black-fix-code))
+  (add-hook 'before-save-hook #'elpy-autopep8-fix-code))
 
 (defun tex-mode-init ()
   "Initialize tex mode."
@@ -112,6 +112,8 @@
 (use-package monokai-theme
   :init (load-theme 'monokai t))
 
+(use-package markdown-mode)
+
 (use-package shell-pop)
 
 (custom-set-variables
@@ -128,7 +130,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (py-autopep8 elpy company rust-mode monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
+    (markdown-mode py-autopep8 elpy company rust-mode monokai-theme exec-path-from-shell auctex clang-format evil evil-magit evil-commentary flycheck go-mode use-package shell-pop magit)))
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values (quote ((flycheck-gcc-language-standard . c++11))))
  '(shell-pop-shell-type

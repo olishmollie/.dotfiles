@@ -1,7 +1,3 @@
-function emacs() {
-    emacsclient -a="" $*
-}
-
 # Default Editor
 export VISUAL=emacs
 export EDITOR=emacs
