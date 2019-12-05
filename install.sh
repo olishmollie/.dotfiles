@@ -1,15 +1,14 @@
 #!/bin/sh
 
-# Copies dotfiles into home folder, installs software I use
+# Installs my development environment for macos.
 
 set -e
 
 echo "Copying dotfiles..."
 cp -R "$HOME/.dotfiles/.vim/" "$HOME"
 
-mkdir "$HOME/.emacs.d/"
-ln -s "$HOME/.dotfiles/.emacs.d/init.el" "$HOME/.emacs.d/init.el"
 ln -s "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
+ln -s "$HOME/.dotfiles/.spacemacs" "$HOME/.spacemacs"
 
 ln -s "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
@@ -35,10 +34,13 @@ brew install go
 brew install python
 brew install emacs
 brew install clang-format
+brew install node
+
+brew cask install emacs
+
 brew install olishmollie/tools/fig
 brew install olishmollie/tools/nconv
 brew install olishmollie/tools/passman
-
 echo "Configuring git..."
 git config --global core.excludesfile "$HOME/.gitignore_global"
 
@@ -47,9 +49,10 @@ sudo cp /etc/shells /etc/shells~old
 echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
 
+echo "Installing Spacemacs..."
+git clone https://github.com/olishmollie/spacemacs ~/.emacs.d
+
 echo "Installation complete. Restart terminal to see changes."
 
-# WARNING: The next line must be in raw ('') quotes
-echo 'To uninstall, run `~/profile.uninstall.sh`'
-
+echo "To uninstall, run ~/profile.uninstall.sh"
 echo ""
