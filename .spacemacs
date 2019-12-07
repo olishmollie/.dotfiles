@@ -35,6 +35,7 @@ This function should only modify configuration layer settings."
    '(
      lsp
      (c-c++ :variables
+            c-basic-offset 4
             c-c++-default-mode-for-headers 'c++-mode
             lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"
             c-c++-enable-clang-format-on-save t)
@@ -59,7 +60,8 @@ This function should only modify configuration layer settings."
             shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     treemacs
+     (neotree :variables
+              neo-theme 'icons)
      version-control
      )
 
@@ -70,7 +72,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(all-the-icons)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
