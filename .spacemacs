@@ -38,7 +38,8 @@ This function should only modify configuration layer settings."
             c-basic-offset 4
             c-c++-default-mode-for-headers 'c++-mode
             lsp-clients-clangd-executable "/usr/local/opt/llvm/bin/clangd"
-            c-c++-enable-clang-format-on-save t)
+            c-c++-enable-clang-format-on-save t
+            c-c++-format-on-save-with-local-file-only t)
      (rust :variables
            rust-format-on-save t)
      ;; ----------------------------------------------------------------
