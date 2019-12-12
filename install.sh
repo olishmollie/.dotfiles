@@ -9,7 +9,6 @@ cp -R "$HOME/.dotfiles/.vim/" "$HOME"
 
 ln -s "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
 ln -s "$HOME/.dotfiles/.spacemacs" "$HOME/.spacemacs"
-
 ln -s "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
 ln -s "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
@@ -41,6 +40,7 @@ brew cask install emacs
 brew install olishmollie/tools/fig
 brew install olishmollie/tools/nconv
 brew install olishmollie/tools/passman
+
 echo "Configuring git..."
 git config --global core.excludesfile "$HOME/.gitignore_global"
 
