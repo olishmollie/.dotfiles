@@ -42,6 +42,12 @@ This function should only modify configuration layer settings."
             c-c++-format-on-save-with-local-file-only t)
      (rust :variables
            rust-format-on-save t)
+     (go :variables
+         go-backend 'lsp
+         go-format-before-save t
+         gofmt-command "goimports"
+         godoc-at-point-function 'godoc-gogetdoc
+         go-tab-width 4)
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -60,7 +66,8 @@ This function should only modify configuration layer settings."
             shell-default-height 30
             shell-default-position 'bottom)
      ;; spell-checking
-     syntax-checking
+     (syntax-checking :variables
+                      syntax-checking-enable-tooltips nil)
      (neotree :variables
               neo-theme 'icons)
      version-control
