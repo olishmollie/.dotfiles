@@ -60,3 +60,4 @@ Thumbs.db
 .vscode/
 .idea/
 tags
+.dir-locals.el
