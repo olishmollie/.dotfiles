@@ -1,14 +1,11 @@
 #!/bin/sh
 
 echo "Are you sure? (y/N)"
-read REPLY
-if [ $REPLY = 'y' ]
+read -r REPLY
+if [ "$REPLY" = 'y' ]
 then
     echo "Removing dotfiles..."
-    rm -rf "$HOME/.vim"
-
     rm "$HOME/.bash_profile"
-    rm "$HOME/.spacemacs"
     rm "$HOME/.bashrc"
     rm "$HOME/.gitconfig"
     rm "$HOME/.gitignore_global"
@@ -18,6 +15,7 @@ then
     rm -rf "$HOME/.dotfiles"
     rm -rf "$HOME/.passman"
     rm -rf "$HOME/.emacs.d"
+    rm -rf "$HOME/.vim"
 
     echo "Uninstalling Homebrew..."
     yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"

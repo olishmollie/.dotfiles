@@ -5,15 +5,17 @@
 set -e
 
 echo "Copying dotfiles..."
+mkdir "$HOME/.emacs.d/"
 cp -R "$HOME/.dotfiles/.vim/" "$HOME"
 
 ln -s "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
-ln -s "$HOME/.dotfiles/.spacemacs" "$HOME/.spacemacs"
 ln -s "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
 ln -s "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 ln -s "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
 ln -s "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
+ln -s "$HOME/.dotfiles/init.el" "$HOME/.emacs.d/init.el"
+ln -s "$HOME/.dotfiles/core.el" "$HOME/.emacs.d/core.el"
 
 echo "Copying uninstall script"
 cp "$HOME/.dotfiles/profile.uninstall.sh" "$HOME"
@@ -31,7 +33,6 @@ brew install bash
 brew install git
 brew install go
 brew install python
-brew install emacs
 brew install clang-format
 brew install node
 
@@ -48,9 +49,6 @@ echo "Changing default shell..."
 sudo cp /etc/shells /etc/shells~old
 echo "/usr/local/bin/bash" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/bash
-
-echo "Installing Spacemacs..."
-git clone https://github.com/olishmollie/spacemacs ~/.emacs.d
 
 echo "Installation complete. Restart terminal to see changes."
 

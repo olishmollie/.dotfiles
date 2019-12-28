@@ -15,7 +15,7 @@ if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWSTASHSTATE=1
   GIT_PS1_SHOWUPSTREAM="auto"
-  PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; venv_info; $PROMPT_COMMAND"
+  PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; $PROMPT_COMMAND"
 else
   export PS1="$Red\u$ColorReset \W:> "
 fi
@@ -32,12 +32,4 @@ export GOPATH=$HOME/Dev/go
 # Path configuration
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-
-# Needed for venv aware prompt
-function venv_info() {
-  if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ]; then
-    if [ "$VIRTUAL_ENV" != "" ]; then
-      PS1="($(basename "$VIRTUAL_ENV")) $PS1"
-    fi
-  fi
-}
+export PATH="/usr/local/Cellar/llvm/9.0.0_1/bin/:$PATH"
