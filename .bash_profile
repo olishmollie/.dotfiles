@@ -32,4 +32,4 @@ export GOPATH=$HOME/Dev/go
 # Path configuration
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-export PATH="/usr/local/Cellar/llvm/9.0.0_1/bin/:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH
