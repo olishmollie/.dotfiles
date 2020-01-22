@@ -2,6 +2,16 @@
 export VISUAL=emacs
 export EDITOR=emacs
 
+# TODO: It would be great if emacs opened a file in a new window,
+# doesn't happen yet.
+function ec() {
+    if [ -n "$INSIDE_EMACS" ]; then
+        emacsclient -e "(other-buffer 0)" "(find-file \"$1\")"
+    else
+        emacsclient -n -a '' "$1"
+    fi
+}
+
 # Prompt
 Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
@@ -27,7 +37,7 @@ export GREP_OPTIONS='--color=always'
 export GOPATH=$HOME/Dev/go
 
 # Source bash completions
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Path configuration
 export PATH="$HOME/.cargo/bin:$PATH"
