@@ -2,13 +2,11 @@
 export VISUAL=emacs
 export EDITOR=emacs
 
-# TODO: It would be great if emacs opened a file in a new window,
-# doesn't happen yet.
 function ec() {
     if [ -n "$INSIDE_EMACS" ]; then
-        emacsclient -e "(other-buffer 0)" "(find-file \"$1\")"
+        emacsclient -a '' "$1"
     else
-        emacsclient -n -a '' "$1"
+        emacsclient -n -c -a '' "$1"
     fi
 }
 
