@@ -2,6 +2,7 @@
 export VISUAL=emacs
 export EDITOR=emacs
 
+# TODO: Make this work.
 function ec() {
     if [ -n "$INSIDE_EMACS" ]; then
         emacsclient -a '' "$1"
