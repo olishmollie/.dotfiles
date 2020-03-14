@@ -2,13 +2,8 @@
 export VISUAL=emacs
 export EDITOR=emacs
 
-# TODO: Make this work.
 function ec() {
-    if [ -n "$INSIDE_EMACS" ]; then
-        emacsclient -a '' "$1"
-    else
-        emacsclient -n -c -a '' "$1"
-    fi
+	emacsclient -n -a '' "$1"
 }
 
 # Prompt
