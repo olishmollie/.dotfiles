@@ -39,6 +39,6 @@ export GOPATH=$HOME/Dev/go
 [ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Path configuration
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:/usr/local/opt/llvm/bin"
