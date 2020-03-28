@@ -21,6 +21,7 @@ yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/
 
 echo "Installing important Homebrew packages..."
 brew install bash
+brew install bash-completions
 brew install clang-format
 brew install git
 brew install go
