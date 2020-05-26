@@ -2,8 +2,25 @@
 export VISUAL=emacs
 export EDITOR=emacs
 
-function ec() {
-	emacsclient -n -a '' "$1"
+# Open an in-terminal instance of emacs,
+# or a new emacs window if emacs if already open.
+function e() {
+	if [ -n "$INSIDE_EMACS" ]; then
+		emacs_find_file "$@"
+	else
+		emacsclient -nq -e '(server-running-p)'
+		if [ "$?" = 1 ]; then
+			emacsclient -qnc -a '' "$@"
+			clear
+		else
+			emacsclient -qn "$@"
+		fi
+	fi
+}
+
+# Kill a running emacs server.
+function kill_emacs() {
+	emacsclient -e '(kill-emacs)'
 }
 
 # Temporary alternative to Valgrind
