@@ -36,8 +36,11 @@ Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
 
 # Configure git awareness
-if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
-  source /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ] ||
+   [ -f "/etc/bash_completion.d/git-prompt" ]; then
+	# TODO: -- I would rather not silence errors here.
+	source /usr/local/etc/bash_completion.d/git-prompt.sh 2>/dev/null
+	source /etc/bash_completion.d/git-prompt 2>/dev/null
 
   GIT_PS1_SHOWCOLORHINTS=1
   GIT_PS1_SHOWDIRTYSTATE=1

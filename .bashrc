@@ -1,4 +1,4 @@
-source "/Users/ajbond/.bash_profile"
+source "$HOME/.bash_profile"
 
 # Vterm/Emacs integration
 if [ -n "$INSIDE_EMACS" ]; then
