@@ -10,10 +10,15 @@ function e() {
 	else
 		emacsclient -nq -e '(server-running-p)'
 		if [ "$?" = 1 ]; then
-			emacsclient -qnc -a '' "$@"
+			emacsclient -nqc -a '' "$@"
 			clear
 		else
-			emacsclient -qn "$@"
+			isopen="$(emacsclient -nq -e '(> 1 (length (frame-list)))')"
+			if [ "$isopen" = "nil" ]; then
+				emacsclient -nqc "$@"
+			else
+				emacscleint -nq "$@"
+			fi
 		fi
 	fi
 }
