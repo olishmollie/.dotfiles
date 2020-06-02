@@ -38,6 +38,10 @@ function leakcheck() {
 	fi
 }
 
+# Source bash completions
+[ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && source "/usr/local/etc/profile.d/bash_completion.sh"
+[ -r "/etc/profile.d/bash_completion.sh" ] && source "/etc/profile.d/bash_completion.sh"
+
 # Prompt
 Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
@@ -64,9 +68,6 @@ export GREP_OPTIONS='--color=always'
 
 # Set main go directory
 export GOPATH=$HOME/Dev/go
-
-# Source bash completions
-[ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Path configuration
 export PATH="$PATH:$HOME/.cargo/bin"
