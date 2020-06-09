@@ -50,13 +50,17 @@ else
 fi
 
 export CLICOLOR=1
-export GREP_OPTIONS='--color=always'
+
+# Deprecated on ubuntu
+# export GREP_OPTIONS='--color=always'
+alias grep=grep --color=auto
 
 # Set main go directory
 export GOPATH=$HOME/Dev/go
 
 # Source bash completions
 [ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[ -r "/etc/bash_completion.d/bash_completion" ] && . "/etc/bash_completion.d/bash_completion"
 
 # Path configuration
 export PATH="$PATH:$HOME/.cargo/bin"
