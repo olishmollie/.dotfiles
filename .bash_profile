@@ -10,10 +10,15 @@ function e() {
 	else
 		emacsclient -nq -e '(server-running-p)'
 		if [ "$?" = 1 ]; then
-			emacsclient -qnc -a '' "$@"
+			emacsclient -nqc -a '' "$@"
 			clear
 		else
-			emacsclient -qn "$@"
+			isopen="$(emacsclient -nq -e '(> 1 (length (frame-list)))')"
+			if [ "$isopen" = "nil" ]; then
+				emacsclient -nqc "$@"
+			else
+				emacscleint -nq "$@"
+			fi
 		fi
 	fi
 }
@@ -25,19 +30,28 @@ function kill_emacs() {
 
 # Temporary alternative to Valgrind
 function leakcheck() {
-	# See advice about symlink given here: https://www.reddit.com/r/macprogramming/comments/7iao6d/using_the_leaks_command_on_a_cc_executable/
-	sudo ln -s /Applications/Xcode.app/Contents/Developer/usr/lib/libLeaksAtExit.dylib /usr/local/lib/libLeaksAtExit.dylib
-	leaks --atExit -- "$1"
-	rm /usr/local/lib/libLeaksAtExit.dylib
+	if [ "$(uname)" = "Darwin" ]; then
+		# See advice about symlink given here: https://www.reddit.com/r/macprogramming/comments/7iao6d/using_the_leaks_command_on_a_cc_executable/
+		sudo ln -s /Applications/Xcode.app/Contents/Developer/usr/lib/libLeaksAtExit.dylib /usr/local/lib/libLeaksAtExit.dylib
+		leaks --atExit -- "$1"
+		rm /usr/local/lib/libLeaksAtExit.dylib
+	fi
 }
+
+# Source bash completions
+[ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && source "/usr/local/etc/profile.d/bash_completion.sh"
+[ -r "/etc/profile.d/bash_completion.sh" ] && source "/etc/profile.d/bash_completion.sh"
 
 # Prompt
 Red='\[\e[0;31m\]'
 ColorReset='\[\e[0m\]'
 
 # Configure git awareness
-if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
-  source /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ] ||
+   [ -f "/etc/bash_completion.d/git-prompt" ]; then
+	# TODO: -- I would rather not silence errors here.
+	source /usr/local/etc/bash_completion.d/git-prompt.sh 2>/dev/null
+	source /etc/bash_completion.d/git-prompt 2>/dev/null
 
   GIT_PS1_SHOWCOLORHINTS=1
   GIT_PS1_SHOWDIRTYSTATE=1
