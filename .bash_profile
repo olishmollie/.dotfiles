@@ -13,11 +13,11 @@ function e() {
 			emacsclient -nqc -a '' "$@"
 			clear
 		else
-			isopen="$(emacsclient -nq -e '(> 1 (length (frame-list)))')"
+			isopen="$(emacsclient -nq -e '(> (length (frame-list)))' 1)"
 			if [ "$isopen" = "nil" ]; then
 				emacsclient -nqc "$@"
 			else
-				emacscleint -nq "$@"
+				emacsclient -nq "$@"
 			fi
 		fi
 	fi
