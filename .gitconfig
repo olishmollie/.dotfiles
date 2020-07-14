@@ -17,3 +17,5 @@
 	email = olishmollie@gmail.com
 [github]
 	username = olishmollie
+[pull]
+	rebase = false
