@@ -80,3 +80,4 @@ export GOPATH=$HOME/Dev/go
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
+export PATH=$"$PATH:$HOME/.cabal/bin"
