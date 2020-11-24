@@ -81,8 +81,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Use emacs keybindings
+bindkey -e
+
 POWERLEVEL9K_MODE="nerdfont-complete"
 
+# Default text editor
 export VISUAL=emacs
 export EDITOR=emacs
 
@@ -96,8 +100,10 @@ function leakcheck() {
 	fi
 }
 
+# Configure Go path
 export GOPATH=$HOME/Dev/go
 
+# Configure other path variables
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
