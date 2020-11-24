@@ -14,7 +14,6 @@ ln -s "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
 cp -R "$HOME/.dotfiles/.vim" "$HOME"
 
 echo "Checking if Homebrew is installed..."
-
 if ! which -s brew; then
     echo "Installing Homebrew..."
     yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -36,6 +35,16 @@ git clone https://github.com/olishmollie/memacs "$HOME/.emacs.d"
 
 echo "Installing Rust..."
 curl https://sh.rustup.rs -sSf | sh
+
+echo "Installing fonts..."
+cd $HOME/Library/Fonts && 
+{ 
+  curl -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf 
+  cur -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+  curl -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+  curl -O https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+  cd -
+}
 
 echo "Installing oh-my-zsh..."
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
