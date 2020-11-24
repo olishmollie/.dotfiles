@@ -3,7 +3,7 @@
 # Install development environment for macos.
 
 echo "Copying dotfiles..."
-ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zhrc"
+ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zshrc"
 ln -s "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
 ln -s "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
@@ -24,7 +24,7 @@ else
 fi
 
 echo "Installing core packages..."
-brew bundle
+brew bundle --file $HOME/.dotfiles/Brewfile
 
 echo "Configuring git..."
 git config --global core.excludesfile "$HOME/.gitignore_global"
