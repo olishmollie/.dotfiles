@@ -23,6 +23,11 @@ then
     uninstall_oh_my_zsh
 
     echo "Uninstalling Homebrew..."
+    brew cask uninstall emacs
+    brew cask uninstall smlnj
+    brew cask uninstall basictex
+    brew cask uninstall xquartz
+
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
 
     echo "Uninstalling Rust..."

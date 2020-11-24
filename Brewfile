@@ -33,7 +33,6 @@ brew "olishmollie/tools/passman"
 brew "olishmollie/tools/radix"
 cask "basictex"
 cask "emacs"
-cask "java"
 cask "smlnj"
 cask "xquartz"
 mas "GarageBand", id: 682658836

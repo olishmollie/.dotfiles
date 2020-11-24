@@ -19,7 +19,7 @@ if ! which -s brew; then
     yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
 	brew tap homebrew/bundle
-	brew bundle cleanup --force
+	brew bundle --file $HOME/.dotfiles/Brewfile cleanup --force
 fi
 
 echo "Installing core packages..."
