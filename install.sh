@@ -4,9 +4,6 @@
 
 set -e
 
-echo "Installing oh-my-zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 echo "Copying dotfiles..."
 ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zhrc"
 ln -s "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
@@ -45,6 +42,9 @@ git clone https://github.com/olishmollie/memacs "$HOME/.emacs.d"
 
 echo "Installing Rust..."
 curl https://sh.rustup.rs -sSf | sh
+
+echo "Installing oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Installation complete. Restart terminal to see changes."
 echo "To uninstall, run ~/.dotfiles/uninstall.sh"
