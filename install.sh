@@ -1,10 +1,14 @@
 #!/bin/sh
 
-# Installs my development environment for macos.
+# Install development environment for macos.
 
 set -e
 
+echo "Installing oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 echo "Copying dotfiles..."
+ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zhrc"
 ln -s "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
 ln -s "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
@@ -16,9 +20,10 @@ cp "$HOME/.dotfiles/profile.uninstall.sh" "$HOME"
 cp -R "$HOME/.dotfiles/.vim/" "$HOME"
 
 echo "Checking if Homebrew is installed..."
-if not which -s brew; then
+
+if ! which -s brew; then
     echo "Installing Homebrew..."
-    yes | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
 	brew tap homebrew/bundle
 	brew bundle cleanup --force
@@ -42,5 +47,5 @@ echo "Installing Rust..."
 curl https://sh.rustup.rs -sSf | sh
 
 echo "Installation complete. Restart terminal to see changes."
-echo "To uninstall, run ~/profile.uninstall.sh"
+echo "To uninstall, run ~/.dotfiles/uninstall.sh"
 echo ""

@@ -5,6 +5,7 @@ read -r REPLY
 if [ "$REPLY" = 'y' ]
 then
     echo "Removing dotfiles..."
+    rm "$HOME/.zhrc"
     rm "$HOME/.bash_profile"
     rm "$HOME/.bashrc"
     rm "$HOME/.gitconfig"
@@ -13,21 +14,17 @@ then
     rm "$HOME/.vimrc"
 
     rm -rf "$HOME/.dotfiles"
+    rm -rf "$HOME/.oh-my-zsh"
     rm -rf "$HOME/.passman"
     rm -rf "$HOME/.emacs.d"
     rm -rf "$HOME/.vim"
 
+    echo "Uninstalling oh-my-zsh..."
+    uninstall_oh_my_zsh
+
     echo "Uninstalling Homebrew..."
-    yes | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
 
     echo "Uninstalling Rust..."
     yes | rustup self uninstall
-
-    echo "Restoring default shell..."
-    sudo rm /etc/shells
-    sudo mv /etc/shells~old /etc/shells
-    chsh -s /bin/bash
-
-    echo "Removing this script..."
-    rm "$HOME/profile.uninstall.sh"
 fi
