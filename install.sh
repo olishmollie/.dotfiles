@@ -2,8 +2,6 @@
 
 # Install development environment for macos.
 
-set -e
-
 echo "Copying dotfiles..."
 ln -s "$HOME/.dotfiles/.zshrc" "$HOME/.zhrc"
 ln -s "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
@@ -13,7 +11,7 @@ ln -s "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 ln -s "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
 ln -s "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
 
-cp -R "$HOME/.dotfiles/.vim/" "$HOME"
+cp -R "$HOME/.dotfiles/.vim" "$HOME"
 
 echo "Checking if Homebrew is installed..."
 
@@ -33,9 +31,6 @@ git config --global core.excludesfile "$HOME/.gitignore_global"
 git config --global user.name "AJ Bond"
 git config --global user.email "olishmollie@gmail.com"
 
-echo "Configuring Vim..."
-vim +PlugInstall +qall
-
 echo "Configuring Emacs..."
 git clone https://github.com/olishmollie/memacs "$HOME/.emacs.d"
 
@@ -43,7 +38,7 @@ echo "Installing Rust..."
 curl https://sh.rustup.rs -sSf | sh
 
 echo "Installing oh-my-zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
 echo "Installation complete. Restart terminal to see changes."
 echo "To uninstall, run ~/.dotfiles/uninstall.sh"
