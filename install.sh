@@ -13,7 +13,6 @@ ln -s "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 ln -s "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
 ln -s "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
 
-cp "$HOME/.dotfiles/profile.uninstall.sh" "$HOME"
 cp -R "$HOME/.dotfiles/.vim/" "$HOME"
 
 echo "Checking if Homebrew is installed..."
