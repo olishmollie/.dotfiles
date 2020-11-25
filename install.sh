@@ -49,6 +49,7 @@ cd $HOME/Library/Fonts &&
 echo "Installing oh-my-zsh..."
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
 echo "Installation complete. Restart terminal to see changes."
 echo "To uninstall, run ~/.dotfiles/uninstall.sh"
