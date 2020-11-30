@@ -90,6 +90,84 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 export VISUAL=emacs
 export EDITOR=emacs
 
+# Vterm/Emacs integration
+if [ -n "$INSIDE_EMACS" ]; then
+	function vterm_printf(){
+		if [ -n "$TMUX" ]; then
+			# Tell tmux to pass the escape sequences through
+			# (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+			printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+		elif [ "${TERM%%-*}" = "screen" ]; then
+			# GNU screen (screen, screen-256color, screen-256color-bce)
+			printf "\eP\e]%s\007\e\\" "$1"
+		else
+			printf "\e]%s\e\\" "$1"
+		fi
+	}
+
+	function vterm_cmd() {
+		if [ -n "$TMUX" ]; then
+			# tell tmux to pass the escape sequences through
+			# (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+			printf "\ePtmux;\e\e]51;E"
+		elif [ "${TERM%%-*}" = "screen" ]; then
+			# GNU screen (screen, screen-256color, screen-256color-bce)
+			printf "\eP\e]51;E"
+		else
+			printf "\e]51;E"
+		fi
+
+		printf "\e]51;E"
+		local r
+		while [[ $# -gt 0 ]]; do
+			r="${1//\\/\\\\}"
+			r="${r//\"/\\\"}"
+			printf '"%s" ' "$r"
+			shift
+		done
+		if [ -n "$TMUX" ]; then
+			# tell tmux to pass the escape sequences through
+			# (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+			printf "\007\e\\"
+		elif [ "${TERM%%-*}" = "screen" ]; then
+			# GNU screen (screen, screen-256color, screen-256color-bce)
+			printf "\007\e\\"
+		else
+			printf "\e\\"
+		fi
+	}
+
+	function emacs_find_file() {
+		vterm_cmd find-file-from-vterm "$(realpath "$@")"
+	}
+fi
+
+# Open an in-terminal instance of emacs,
+# or a new emacs window if emacs if already open.
+function e() {
+	if [ -n "$INSIDE_EMACS" ]; then
+		emacs_find_file "$@"
+	else
+		emacsclient -nq -e '(server-running-p)'
+		if [ "$?" = 1 ]; then
+			emacsclient -nqc -a '' "$@"
+			clear
+		else
+			isopen="$(emacsclient -nq -e '(> (length (frame-list)))' 1)"
+			if [ "$isopen" = "nil" ]; then
+				emacsclient -nqc "$@"
+			else
+				emacsclient -nq "$@"
+			fi
+		fi
+	fi
+}
+
+# Kill a running emacs server.
+function kill_emacs() {
+	emacsclient -e '(kill-emacs)'
+}
+
 # Temporary alternative to Valgrind
 function leakcheck() {
 	if [ "$(uname)" = "Darwin" ]; then
