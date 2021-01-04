@@ -19,3 +19,5 @@
 	username = olishmollie
 [pull]
 	rebase = false
+[credential]
+	helper = osxkeychain
