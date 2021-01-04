@@ -156,7 +156,7 @@ function e() {
 			emacsclient -nqc -a '' "$@"
 			clear
 		else
-			isopen="$(emacsclient -nq -e '(> (length (frame-list)))' 1)"
+			isopen="$(emacsclient -nq -e '(> (length (frame-list)) 1)')"
 			if [ "$isopen" = "nil" ]; then
 				emacsclient -nqc "$@"
 			else
