@@ -9,9 +9,6 @@ ln -s "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
 ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
 ln -s "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 ln -s "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
-ln -s "$HOME/.dotfiles/.vimrc" "$HOME/.vimrc"
-
-cp -R "$HOME/.dotfiles/.vim" "$HOME"
 
 echo "Checking if Homebrew is installed..."
 if ! which -s brew; then

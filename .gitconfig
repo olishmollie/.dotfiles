@@ -1,17 +1,17 @@
-[alias]		
-  co = checkout		
-  br = branch		
-  cob = checkout -b		
-  st = status		
-  undo = reset HEAD~1 --mixed		
-  conflicts = diff --name-only --diff-filter=U		
-[core]		
+[alias]
+  co = checkout
+  br = branch
+  cob = checkout -b
+  st = status
+  undo = reset HEAD~1 --mixed
+  conflicts = diff --name-only --diff-filter=U
+[core]
 	excludesfile = /Users/ajbond/.gitignore_global
-	editor = vim		
-[format]		
-	pretty = oneline		
-[log]		
-	abbrevCommit = true		
+	editor = emacsclient -a=
+[format]
+	pretty = oneline
+[log]
+	abbrevCommit = true
 [user]
 	name = AJ Bond
 	email = olishmollie@gmail.com
@@ -19,3 +19,5 @@
 	username = olishmollie
 [pull]
 	rebase = false
+[credential]
+	helper = osxkeychain
