@@ -90,8 +90,8 @@ bindkey -e
 POWERLEVEL9K_MODE="nerdfont-complete"
 
 # Default text editor
-export VISUAL=emacs
-export EDITOR=emacs
+export VISUAL=code
+export EDITOR=vim
 
 # Vterm/Emacs integration
 if [ -n "$INSIDE_EMACS" ]; then
@@ -189,6 +189,13 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
 
+export ANDROID_HOME=/Users/$USER/Library/Android/sdk
+export PATH="$PATH:$HOME/Dev/flutter/bin"
+export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+
+# Add .NET Core SDK tools
+export PATH="$PATH:/Users/ajbond/.dotnet/tools"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -217,3 +224,4 @@ export PATH="$PATH:/usr/local/opt/llvm/bin"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval "$(rbenv init -)"
+

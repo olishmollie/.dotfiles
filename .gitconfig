@@ -7,7 +7,7 @@
   conflicts = diff --name-only --diff-filter=U
 [core]
 	excludesfile = /Users/ajbond/.gitignore_global
-	editor = emacsclient -a=
+	editor = code
 [format]
 	pretty = oneline
 [log]
