@@ -4,7 +4,7 @@
 
 echo "Copying dotfiles..."
 ln -bs "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
-ln -bs "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
+cat "$HOME/.dotfiles/.bashrc" >> "$HOME/.bashrc"
 ln -bs "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
 ln -bs "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 ln -bs "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
