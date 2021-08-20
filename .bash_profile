@@ -24,16 +24,6 @@ set_venv() {
 	fi
 }
 
-# Temporary alternative to Valgrind
-leakcheck() {
-	if [ "$(uname)" = "Darwin" ]; then
-		# See advice about symlink given here: https://www.reddit.com/r/macprogramming/comments/7iao6d/using_the_leaks_command_on_a_cc_executable/
-		sudo ln -s /Applications/Xcode.app/Contents/Developer/usr/lib/libLeaksAtExit.dylib /usr/local/lib/libLeaksAtExit.dylib
-		leaks --atExit -- "$1"
-		rm /usr/local/lib/libLeaksAtExit.dylib
-	fi
-}
-
 # Source bash completions
 [ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && source "/usr/local/etc/profile.d/bash_completion.sh"
 [ -r "/etc/profile.d/bash_completion.sh" ] && source "/etc/profile.d/bash_completion.sh"
