@@ -11,8 +11,12 @@ ln -bs "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
 
 echo "Installing core packages..."
 sudo apt -y update && sudo apt -y upgrade
+sudo apt install -y curl
 sudo apt install -y emacs
+sudo apt install -y python3
+sudo apt install -y python3-pip
 sudo apt install -y shellcheck
+sudo apt install -y wget
 
 echo "Configuring git..."
 git config --global core.excludesfile "$HOME/.gitignore_global"
