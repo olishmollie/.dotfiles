@@ -13,7 +13,6 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH=$"$PATH:$HOME/.cabal/bin"
-export PATH="$HOME/.cargo/bin:$PATH"
 
 export PS1="$Red\u$ColorReset \W:> "
 
@@ -59,3 +58,4 @@ if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ] ||
   GIT_PS1_SHOWUPSTREAM="auto"
   PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; $PROMPT_COMMAND"
 fi
+. "$HOME/.cargo/env"

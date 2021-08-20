@@ -2,21 +2,12 @@
 
 # Install development environment for macos.
 
-backup() {
-  file=$1
-  if [ -f "$file" ]; then
-    cp "$file" "$file~old"
-  fi
-}
-
 echo "Copying dotfiles..."
-backup "$HOME/.bash_profile"
-ln -s "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
-backup "$HOME/.bashrc"
-ln -s "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
-ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
-ln -s "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
-ln -s "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
+ln -bs "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
+ln -bs "$HOME/.dotfiles/.bashrc" "$HOME/.bashrc"
+ln -bs "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
+ln -bs "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
+ln -bs "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
 
 echo "Installing core packages..."
 sudo apt -y update && sudo apt -y upgrade
