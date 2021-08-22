@@ -11,8 +11,10 @@ ln -bs "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
 
 echo "Installing core packages..."
 sudo apt -y update && sudo apt -y upgrade
+sudo apt install -y clang-format
 sudo apt install -y curl
 sudo apt install -y emacs
+sudo apt install -y gdb
 sudo apt install -y python3
 sudo apt install -y python3-pip
 sudo apt install -y shellcheck
