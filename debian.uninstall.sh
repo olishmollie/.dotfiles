@@ -29,6 +29,7 @@ then
     sudo apt remove -y python3
     sudo apt remove -y python3-pip
     sudo apt remove -y shellcheck
+    sudo apt remove -y valgrind
     sudo apt remove -y wget
 
     echo "Uninstalling Rust..."

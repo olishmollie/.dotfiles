@@ -18,6 +18,7 @@ sudo apt install -y gdb
 sudo apt install -y python3
 sudo apt install -y python3-pip
 sudo apt install -y shellcheck
+sudo apt install -y valgrind
 sudo apt install -y wget
 
 echo "Configuring git..."
