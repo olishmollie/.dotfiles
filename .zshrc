@@ -93,84 +93,6 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 export VISUAL=code
 export EDITOR=vim
 
-# Vterm/Emacs integration
-if [ -n "$INSIDE_EMACS" ]; then
-	function vterm_printf(){
-		if [ -n "$TMUX" ]; then
-			# Tell tmux to pass the escape sequences through
-			# (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-			printf "\ePtmux;\e\e]%s\007\e\\" "$1"
-		elif [ "${TERM%%-*}" = "screen" ]; then
-			# GNU screen (screen, screen-256color, screen-256color-bce)
-			printf "\eP\e]%s\007\e\\" "$1"
-		else
-			printf "\e]%s\e\\" "$1"
-		fi
-	}
-
-	function vterm_cmd() {
-		if [ -n "$TMUX" ]; then
-			# tell tmux to pass the escape sequences through
-			# (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-			printf "\ePtmux;\e\e]51;E"
-		elif [ "${TERM%%-*}" = "screen" ]; then
-			# GNU screen (screen, screen-256color, screen-256color-bce)
-			printf "\eP\e]51;E"
-		else
-			printf "\e]51;E"
-		fi
-
-		printf "\e]51;E"
-		local r
-		while [[ $# -gt 0 ]]; do
-			r="${1//\\/\\\\}"
-			r="${r//\"/\\\"}"
-			printf '"%s" ' "$r"
-			shift
-		done
-		if [ -n "$TMUX" ]; then
-			# tell tmux to pass the escape sequences through
-			# (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-			printf "\007\e\\"
-		elif [ "${TERM%%-*}" = "screen" ]; then
-			# GNU screen (screen, screen-256color, screen-256color-bce)
-			printf "\007\e\\"
-		else
-			printf "\e\\"
-		fi
-	}
-
-	function emacs_find_file() {
-		vterm_cmd find-file-from-vterm "$(realpath "$@")"
-	}
-fi
-
-# Open an in-terminal instance of emacs,
-# or a new emacs window if emacs if already open.
-function e() {
-	if [ -n "$INSIDE_EMACS" ]; then
-		emacs_find_file "$@"
-	else
-		emacsclient -nq -e '(server-running-p)'
-		if [ "$?" = 1 ]; then
-			emacsclient -nqc -a '' "$@"
-			clear
-		else
-			isopen="$(emacsclient -nq -e '(> (length (frame-list)) 1)')"
-			if [ "$isopen" = "nil" ]; then
-				emacsclient -nqc "$@"
-			else
-				emacsclient -nq "$@"
-			fi
-		fi
-	fi
-}
-
-# Kill a running emacs server.
-function kill_emacs() {
-	emacsclient -e '(kill-emacs)'
-}
-
 # Temporary alternative to Valgrind
 function leakcheck() {
 	if [ "$(uname)" = "Darwin" ]; then
@@ -181,22 +103,18 @@ function leakcheck() {
 	fi
 }
 
-# Configure Go path
-export GOPATH=$HOME/Dev/go
-
-# Configure other path variables
+# Configure path
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
-
-export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 export PATH="$PATH:$HOME/Dev/flutter/bin"
 export PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
-
-# Add .NET Core SDK tools
 export PATH="$PATH:/Users/ajbond/.dotnet/tools"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Environment variables
+export MANPATH="/usr/local/man:$MANPATH"
+export GOPATH=$HOME/Dev/go
+export ANDROID_HOME=/Users/$USER/Library/Android/sdk
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
