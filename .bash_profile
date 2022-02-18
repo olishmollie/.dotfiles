@@ -3,7 +3,8 @@ export VISUAL=vi
 export EDITOR=vi
 
 export CLICOLOR=1
-alias grep=grep --color=auto
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
 
 # Set main go directory
 export GOPATH=$HOME/Dev/go
