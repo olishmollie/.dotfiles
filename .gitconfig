@@ -5,17 +5,14 @@
   st = status
   undo = reset HEAD~1 --mixed
   conflicts = diff --name-only --diff-filter=U
+  last = log -1 HEAD
 [core]
 	excludesfile = /home/ajbond/.gitignore_global
 	editor = vim
-[format]
-	pretty = oneline
 [log]
 	abbrevCommit = true
 [user]
 	name = AJ Bond
-	email = olishmollie@gmail.com
-[github]
-	username = olishmollie
+	email = abond@hubbell.com
 [pull]
 	rebase = false
