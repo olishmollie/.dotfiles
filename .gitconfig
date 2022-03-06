@@ -10,3 +10,5 @@
 [user]
 	name = AJ Bond
 	email = abond@hubbell.com
+[pull]
+	rebase = false
