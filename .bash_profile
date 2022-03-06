@@ -24,27 +24,35 @@ set_venv() {
 # Prompt
 PROMPT_COMMAND=set_venv
 
-Red='\[\e[0;31m\]'
-ColorReset='\[\e[0m\]'
+red='\[\e[0;31m\]'
+yellow='\[\e[0;93m\]'
+blue='\[\e[0;94m\]'
+color_reset='\[\e[0m\]'
 
-export PS1="$Red\u$ColorReset \W:> "
+if [ "$(hostname)" = "abond-vm" ]; then
+    prompt_color=$blue
+elif [ "$(hostname)" = "abond-rpi" ]; then
+    prompt_color=$yellow
+else
+    prompt_color=$red
+fi
+
+export PS1="$prompt_color\u@\h$color_reset \W:> "
 
 # Configure git awareness
 if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ] ||
    [ -f "/etc/bash_completion.d/git-prompt" ]; then
-	# TODO: -- I would rather not silence errors here.
-	source /usr/local/etc/bash_completion.d/git-prompt.sh 2>/dev/null
-	source /etc/bash_completion.d/git-prompt 2>/dev/null
+    # TODO: -- I would rather not silence errors here.
+    source /usr/local/etc/bash_completion.d/git-prompt.sh 2>/dev/null
+    source /etc/bash_completion.d/git-prompt 2>/dev/null
 
-  GIT_PS1_SHOWCOLORHINTS=1
-  GIT_PS1_SHOWDIRTYSTATE=1
-  GIT_PS1_SHOWUNTRACKEDFILES=1
-  GIT_PS1_SHOWSTASHSTATE=1
-  GIT_PS1_SHOWUPSTREAM="auto"
-  PROMPT_COMMAND="__git_ps1 '$Red\u$ColorReset \W' ':> '; $PROMPT_COMMAND"
+    GIT_PS1_SHOWCOLORHINTS=1
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUPSTREAM="auto"
+    PROMPT_COMMAND="__git_ps1 '$prompt_color\u@\h$color_reset \W' ':> '; $PROMPT_COMMAND"
 fi
-
-. "$HOME/.cargo/env"
 
 # Path configuration
 export PATH="$PATH:$HOME/.cargo/bin"
