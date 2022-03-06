@@ -1,18 +1,12 @@
 [alias]
   co = checkout
   br = branch
-  cob = checkout -b
   st = status
   undo = reset HEAD~1 --mixed
-  conflicts = diff --name-only --diff-filter=U
   last = log -1 HEAD
 [core]
-	excludesfile = /home/ajbond/.gitignore_global
+	excludesfile = /home/abond/.gitignore_global
 	editor = vim
-[log]
-	abbrevCommit = true
 [user]
 	name = AJ Bond
 	email = abond@hubbell.com
-[pull]
-	rebase = false
