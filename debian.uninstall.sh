@@ -24,12 +24,12 @@ then
     echo "Uninstalling core packages"
     sudo apt remove -y clang-format
     sudo apt remove -y curl
-    sudo apt remove -y emacs
     sudo apt remove -y gdb
     sudo apt remove -y python3
     sudo apt remove -y python3-pip
     sudo apt remove -y shellcheck
     sudo apt remove -y valgrind
+    sudo apt remove -y vim
     sudo apt remove -y wget
 
     echo "Uninstalling Rust..."

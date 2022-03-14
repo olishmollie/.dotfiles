@@ -2,7 +2,6 @@
 export VISUAL=vi
 export EDITOR=vi
 
-export CLICOLOR=1
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
@@ -61,3 +60,4 @@ export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH=$"$PATH:$HOME/.cabal/bin"
 export PATH=$"$HOME/Tools/gcc-arm-none-eabi/bin:$PATH"
 
+. "$HOME/.cargo/env"
