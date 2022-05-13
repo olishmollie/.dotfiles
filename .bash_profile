@@ -2,7 +2,9 @@
 export VISUAL=vi
 export EDITOR=vi
 
-export CLICOLOR=1
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+alias nx='sudo nx'
 
 # Set main go directory
 export GOPATH=$HOME/Dev/go
@@ -62,11 +64,6 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH=$"$PATH:$HOME/.cabal/bin"
 export PATH=$"$HOME/Tools/gcc-arm-none-eabi/bin:$PATH"
-
-# Aliases
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-alias nx='sudo nx'
 
 # NX Devices
 export BRIDGE=0104116D
