@@ -3,8 +3,6 @@ export VISUAL=vi
 export EDITOR=vi
 
 export CLICOLOR=1
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
 
 # Set main go directory
 export GOPATH=$HOME/Dev/go
@@ -40,12 +38,16 @@ fi
 export PS1="$prompt_color\u@\h$color_reset \W:> "
 
 # Configure git awareness
-if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ] ||
-   [ -f "/etc/bash_completion.d/git-prompt" ]; then
-    # TODO: -- I would rather not silence errors here.
-    source /usr/local/etc/bash_completion.d/git-prompt.sh 2>/dev/null
-    source /etc/bash_completion.d/git-prompt 2>/dev/null
-
+gitaware=false
+if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
+	source /usr/local/etc/bash_completion.d/git-prompt.sh
+	gitaware=true
+fi
+if [ -f "/etc/bash_completion.d/git-prompt" ]; then
+	source /etc/bash_completion.d/git-prompt
+	gitaware=true
+fi
+if [ "$gitaware" = true ]; then
     GIT_PS1_SHOWCOLORHINTS=1
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -61,3 +63,16 @@ export PATH="$PATH:/usr/local/opt/llvm/bin"
 export PATH=$"$PATH:$HOME/.cabal/bin"
 export PATH=$"$HOME/Tools/gcc-arm-none-eabi/bin:$PATH"
 
+# Aliases
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+alias nx='sudo nx'
+
+# NX Devices
+export BRIDGE=0104116D
+export RCFX=0104E6E1
+export RM=9345025A
+
+export TESTER_OMNI1=92ab0001
+export TESTER_OMNI2=92ab0002
+export OFFICE_OMNI=92ab0003
