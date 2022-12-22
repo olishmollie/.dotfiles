@@ -59,17 +59,5 @@ if [ "$gitaware" = true ]; then
 fi
 
 # Path configuration
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/llvm/bin"
-export PATH=$"$PATH:$HOME/.cabal/bin"
-export PATH=$"$HOME/Tools/gcc-arm-none-eabi/bin:$PATH"
 
-# NX Devices
-export BRIDGE=0104116D
-export RCFX=0104E6E1
-export RM=9345025A
-
-export TESTER_OMNI1=92ab0001
-export TESTER_OMNI2=92ab0002
-export OFFICE_OMNI=92ab0003
