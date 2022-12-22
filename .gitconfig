@@ -8,7 +8,7 @@
 	excludesfile = /home/abond/.gitignore_global
 	editor = vim
 [user]
-	name = AJ Bond
-	email = olishmollie@gmail.com
+	name = Andrew Bond
+	email = abond@pmeasuring.com
 [pull]
 	rebase = false

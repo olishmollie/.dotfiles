@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Install development environment for macos.
+# Install development environment for debian.
 
 echo "Copying dotfiles..."
 ln -bs "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
@@ -23,11 +23,8 @@ sudo apt install -y wget
 
 echo "Configuring git..."
 git config --global core.excludesfile "$HOME/.gitignore_global"
-git config --global user.name "AJ Bond"
-git config --global user.email "olishmollie@gmail.com"
-
-echo "Installing Rust..."
-curl https://sh.rustup.rs -sSf | sh
+git config --global user.name "Andrew Bond"
+git config --global user.email "abond@pmeasuring.com"
 
 echo "Installation complete. Restart terminal to see changes."
 echo "To uninstall, run ~/.dotfiles/uninstall.sh"

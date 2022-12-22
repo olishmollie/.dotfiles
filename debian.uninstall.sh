@@ -31,7 +31,4 @@ then
     sudo apt remove -y valgrind
     sudo apt remove -y vim
     sudo apt remove -y wget
-
-    echo "Uninstalling Rust..."
-    yes | rustup self uninstall
 fi
