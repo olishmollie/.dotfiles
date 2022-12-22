@@ -1,14 +1,17 @@
+[user]
+  name = Andrew Bond
+  email = abond@pmeasuring.com
+
 [alias]
   co = checkout
   br = branch
   st = status
   undo = reset HEAD~1 --mixed
   last = log -1 HEAD
+
 [core]
-	excludesfile = /home/abond/.gitignore_global
-	editor = vim
-[user]
-	name = Andrew Bond
-	email = abond@pmeasuring.com
+  excludesfile = /home/abond/.gitignore_global
+  editor = vim
+
 [pull]
-	rebase = false
+  rebase = false
