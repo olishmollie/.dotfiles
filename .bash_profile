@@ -3,7 +3,7 @@ export VISUAL=vi
 export EDITOR=vi
 
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
+alias ls='ls --color=always'
 alias nx='sudo nx'
 
 # Set main go directory
