@@ -6,9 +6,6 @@ alias grep='grep --color=auto'
 alias ls='ls --color=always'
 alias nx='sudo nx'
 
-# Set main go directory
-export GOPATH=$HOME/Dev/go
-
 # Configure Python virtual env awareness
 set_venv() {
 	if [ -n "$VIRTUAL_ENV" ]; then
@@ -29,13 +26,7 @@ yellow='\[\e[0;93m\]'
 blue='\[\e[0;94m\]'
 color_reset='\[\e[0m\]'
 
-if [ "$(hostname)" = "abond-vm" ]; then
-    prompt_color=$blue
-elif [ "$(hostname)" = "abond-rpi" ]; then
-    prompt_color=$yellow
-else
-    prompt_color=$red
-fi
+prompt_color=$red
 
 export PS1="$prompt_color\u@\h$color_reset \W:> "
 
@@ -61,3 +52,7 @@ fi
 # Path configuration
 export PATH="$PATH:/usr/local/opt/llvm/bin"
 
+# Source Rust environment
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
