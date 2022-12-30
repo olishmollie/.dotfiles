@@ -11,6 +11,7 @@ then
     rm "$HOME/.gitignore_global"
     rm "$HOME/.inputrc"
 
+    rm -rf "$HOME/.config"
     rm -rf "$HOME/.dotfiles"
 
     echo "Uninstalling Homebrew..."

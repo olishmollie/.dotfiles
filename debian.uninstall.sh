@@ -19,6 +19,8 @@ then
     restore "$HOME/.gitconfig"
     restore "$HOME/.gitignore_global"
     restore "$HOME/.inputrc"
+
+    rm -rf "$HOME/.config"
     rm -rf "$HOME/.dotfiles"
 
     echo "Uninstalling core packages"
