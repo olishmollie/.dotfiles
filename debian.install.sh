@@ -8,7 +8,9 @@ cat "$HOME/.dotfiles/.bashrc" >> "$HOME/.bashrc"
 ln -bs "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
 ln -bs "$HOME/.dotfiles/.gitignore_global" "$HOME/.gitignore_global"
 ln -bs "$HOME/.dotfiles/.inputrc" "$HOME/.inputrc"
-cp -r "$HOME/.dotfiles/.config" "$HOME/.config"
+
+mkdir -p "$HOME/.config"
+cp -r "$HOME/.dotfiles/.config/nvim" "$HOME/.config/nvim"
 
 echo "Installing core packages..."
 sudo apt -y update && sudo apt -y upgrade
