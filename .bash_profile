@@ -26,7 +26,11 @@ yellow='\[\e[0;93m\]'
 blue='\[\e[0;94m\]'
 color_reset='\[\e[0m\]'
 
-prompt_color=$red
+if [ -n "$SSH_CLIENT" ]; then
+	prompt_color=$yellow
+else
+	prompt_color=$red
+fi
 
 export PS1="$prompt_color\u@\h$color_reset \W:> "
 
