@@ -24,6 +24,7 @@ PROMPT_COMMAND=set_venv
 red='\[\e[0;31m\]'
 yellow='\[\e[0;93m\]'
 blue='\[\e[0;94m\]'
+green='\[\e[0;32m\]'
 color_reset='\[\e[0m\]'
 
 if [ -n "$SSH_CLIENT" ]; then
