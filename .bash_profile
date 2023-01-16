@@ -30,7 +30,7 @@ color_reset='\[\e[0m\]'
 if [ -n "$SSH_CLIENT" ]; then
 	prompt_color=$yellow
 else
-	prompt_color=$red
+	prompt_color=$green
 fi
 
 export PS1="$prompt_color\u@\h$color_reset \w:> "
