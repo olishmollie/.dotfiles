@@ -56,8 +56,9 @@ fi
 
 # Path configuration
 export PATH="$PATH:/usr/local/opt/llvm/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Source Rust environment
-if [ -d "$HOME/.cargo" ] && [ -f "$HOME/.cargo/env" ]; then
+if [ -f "$HOME/.cargo/env" ]; then
     . "$HOME/.cargo/env"
 fi

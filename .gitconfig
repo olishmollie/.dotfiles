@@ -1,6 +1,6 @@
 [user]
-  name = Andrew Bond
-  email = abond@pmeasuring.com
+	name = Andrew Bond
+	email = abond@pmeasuring.com
 
 [alias]
   co = checkout
@@ -10,7 +10,7 @@
   last = log -1 HEAD
 
 [core]
-  excludesfile = /home/abond/.gitignore_global
+	excludesfile = /home/abond/.gitignore_global
   editor = vim
 
 [pull]
