@@ -2,6 +2,14 @@
 
 # Install development environment for debian.
 
+set -e
+
+if [ $(pwd) != "/home/$(whoami)/.dotfiles" ]; then
+    echo "$(pwd)"
+    echo "Dotfiles repo should be installed in home directory."
+    exit 1
+fi
+
 echo "Copying dotfiles..."
 ln -bs "$HOME/.dotfiles/.bash_profile" "$HOME/.bash_profile"
 cat "$HOME/.dotfiles/.bashrc" >> "$HOME/.bashrc"
