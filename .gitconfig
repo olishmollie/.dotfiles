@@ -1,17 +1,12 @@
-[user]
-	name = Andy Bond
-	email = olishmollie@gmail.com
-
 [alias]
-  co = checkout
-  br = branch
-  st = status
-  undo = reset HEAD~1 --mixed
-  last = log -1 HEAD
+	co = checkout
+	br = branch
+	st = status
+	undo = reset HEAD~1 --mixed
+	last = log -1 HEAD
 
 [core]
-	excludesfile = /home/abond/.gitignore_global
-  editor = vim
+	editor = vim
 
 [pull]
-  rebase = false
+	rebase = false
