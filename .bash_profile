@@ -55,16 +55,16 @@ _prompt() {
 }
 
 _env() {
-  export PATH="/home/abond/.local/bin:$PATH"
-  export PATH="/home/abond/.local/texlive/2024/bin/x86_64-linux:$PATH"
-  export MANPATH="/home/abond/.local/texlive/2024/texmf-dist/doc/man:$MANPATH"
-  export INFOPATH="/home/abond/.local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
-  export NVM_DIR="$HOME/.nvm"
+    export PATH="/home/abond/.local/bin:$PATH"
+    export PATH="/home/abond/.local/texlive/2024/bin/x86_64-linux:$PATH"
+    export MANPATH="/home/abond/.local/texlive/2024/texmf-dist/doc/man:$MANPATH"
+    export INFOPATH="/home/abond/.local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
+    export NVM_DIR="$HOME/.nvm"
 
-  # Load Node Version Manager (nvm)
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  # Load nvm bash_completion
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+    # Load Node Version Manager (nvm)
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    # Load nvm bash_completion
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 	if [ -f "$HOME/.cargo/env" ]; then
 	    . "$HOME/.cargo/env"
