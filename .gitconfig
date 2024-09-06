@@ -10,3 +10,6 @@
 
 [pull]
 	rebase = false
+[user]
+	email = olishmollie@gmail.com
+	name = olishmollie@gmail.com
