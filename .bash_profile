@@ -55,10 +55,11 @@ _prompt() {
 }
 
 _env() {
-    export PATH="/home/abond/.local/bin:$PATH"
-    export PATH="/home/abond/.local/texlive/2024/bin/x86_64-linux:$PATH"
-    export MANPATH="/home/abond/.local/texlive/2024/texmf-dist/doc/man:$MANPATH"
-    export INFOPATH="/home/abond/.local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
+    export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/texlive/2024/bin/x86_64-linux:$PATH"
+    export PATH="$HOME/tools/nvim-linux64/bin:$PATH"
+    export MANPATH="$HOME/.local/texlive/2024/texmf-dist/doc/man:$MANPATH"
+    export INFOPATH="$HOME/.local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
     export NVM_DIR="$HOME/.nvm"
 
     # Load Node Version Manager (nvm)
