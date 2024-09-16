@@ -55,18 +55,6 @@ _prompt() {
 }
 
 _env() {
-    export PATH="$HOME/.local/bin:$PATH"
-    export PATH="$HOME/.local/texlive/2024/bin/x86_64-linux:$PATH"
-    export PATH="$HOME/tools/nvim-linux64/bin:$PATH"
-    export MANPATH="$HOME/.local/texlive/2024/texmf-dist/doc/man:$MANPATH"
-    export INFOPATH="$HOME/.local/texlive/2024/texmf-dist/doc/info:$INFOPATH"
-    export NVM_DIR="$HOME/.nvm"
-
-    # Load Node Version Manager (nvm)
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    # Load nvm bash_completion
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
     if [ -f "$HOME/.cargo/env" ]; then
 	. "$HOME/.cargo/env"
     fi

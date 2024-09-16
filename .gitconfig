@@ -8,8 +8,6 @@
 [core]
 	editor = vim
 
-[pull]
-	rebase = false
 [user]
 	email = olishmollie@gmail.com
-	name = olishmollie@gmail.com
+	name = "Andrew Bond"
