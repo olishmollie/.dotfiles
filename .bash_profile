@@ -6,7 +6,7 @@ _terminal() {
     alias vim="nvim"
     alias grep='grep --color=auto'
     alias ls='ls --color=always'
-    alias open='xdg-open'
+    alias open='explorer.exe'
 }
 
 _venv() {
@@ -24,7 +24,7 @@ _prompt() {
     blue='\[\e[0;94m\]'
     green='\[\e[0;32m\]'
     color_reset='\[\e[0m\]'
-    delim=" $"
+    delim="$ "
 
     if [ -n "$SSH_CLIENT" ]; then
 	prompt_color=$yellow
@@ -32,7 +32,8 @@ _prompt() {
 	prompt_color=$green
     fi
 
-    export PS1="$prompt_color\u@\h$color_reset \w$delim "
+    prompt="$prompt_color\u@\h$color_reset$blue:$color_reset\w"
+    export PS1="$prompt$delim"
 
     gitaware=false
     if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
@@ -51,14 +52,18 @@ _prompt() {
 	GIT_PS1_SHOWUNTRACKEDFILES=1
 	GIT_PS1_SHOWSTASHSTATE=1
 	GIT_PS1_SHOWUPSTREAM="auto"
-	PROMPT_COMMAND="__git_ps1 '$prompt_color\u@\h$color_reset \w' '$delim '; $PROMPT_COMMAND"
+	PROMPT_COMMAND="__git_ps1 '$prompt' '$delim'; $PROMPT_COMMAND"
     fi
 }
 
 _env() {
+    PATH="$HOME/.local/bin:$PATH"
     if [ -f "$HOME/.cargo/env" ]; then
 	. "$HOME/.cargo/env"
     fi
+    # Load nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 }
 
 _completions() {
