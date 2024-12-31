@@ -11,8 +11,8 @@ _terminal() {
 
 _venv() {
     if [ -n "$VIRTUAL_ENV" ]; then
-	PS1="($(basename "$VIRTUAL_ENV")) $PS1"
-	export PS1
+        PS1="($(basename "$VIRTUAL_ENV")) $PS1"
+        export PS1
     fi
 }
 
@@ -27,9 +27,9 @@ _prompt() {
     delim="$ "
 
     if [ -n "$SSH_CLIENT" ]; then
-	prompt_color=$yellow
+        prompt_color=$yellow
     else
-	prompt_color=$green
+        prompt_color=$green
     fi
 
     prompt="$prompt_color\u@\h$color_reset$blue:$color_reset\w"
@@ -37,26 +37,30 @@ _prompt() {
 
     gitaware=false
     if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
-	source /usr/local/etc/bash_completion.d/git-prompt.sh
-	gitaware=true
+        source /usr/local/etc/bash_completion.d/git-prompt.sh
+        gitaware=true
     elif [ -f "/etc/bash_completion.d/git-prompt" ]; then
-	source /etc/bash_completion.d/git-prompt
-	gitaware=true
+        source /etc/bash_completion.d/git-prompt
+        gitaware=true
     elif [ -f "/usr/share/git/completion/git-prompt.sh" ]; then
-	source /usr/share/git/completion/git-prompt.sh
-	gitaware=true
+        source /usr/share/git/completion/git-prompt.sh
+        gitaware=true
+    elif [ -f "/opt/local/share/git/git-prompt.sh" ]; then
+        source /opt/local/share/git/git-prompt.sh
+        gitaware=true
     fi
     if [ "$gitaware" = true ]; then
-	GIT_PS1_SHOWCOLORHINTS=1
-	GIT_PS1_SHOWDIRTYSTATE=1
-	GIT_PS1_SHOWUNTRACKEDFILES=1
-	GIT_PS1_SHOWSTASHSTATE=1
-	GIT_PS1_SHOWUPSTREAM="auto"
-	PROMPT_COMMAND="__git_ps1 '$prompt' '$delim'; $PROMPT_COMMAND"
+        GIT_PS1_SHOWCOLORHINTS=1
+        GIT_PS1_SHOWDIRTYSTATE=1
+        GIT_PS1_SHOWUNTRACKEDFILES=1
+        GIT_PS1_SHOWSTASHSTATE=1
+        GIT_PS1_SHOWUPSTREAM="auto"
+        PROMPT_COMMAND="__git_ps1 '$prompt' '$delim'; $PROMPT_COMMAND"
     fi
 }
 
 _env() {
+    PATH="/opt/local/bin:/opt/local/sbin:$PATH"
     PATH="$HOME/.local/bin:$PATH"
     if [ -f "$HOME/.cargo/env" ]; then
 	. "$HOME/.cargo/env"
@@ -70,6 +74,7 @@ _completions() {
     [ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && source "/usr/local/etc/profile.d/bash_completion.sh"
     [ -r "/etc/profile.d/bash_completion.sh" ] && source "/etc/profile.d/bash_completion.sh"
     [ -r "/usr/share/git/completion/git-completion.bash" ] && source "/usr/share/git/completion/git-completion.bash"
+    [ -r "/opt/local/etc/bash_completion" ] && source "/opt/local/etc/bash_completion"
 }
 
 _terminal
