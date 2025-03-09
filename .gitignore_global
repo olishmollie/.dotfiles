@@ -61,3 +61,8 @@ Thumbs.db
 .idea/
 tags
 .dir-locals.el
+.nvim.lua
+
+# Miscellaneous #
+#################
+*.sync-conflict-*

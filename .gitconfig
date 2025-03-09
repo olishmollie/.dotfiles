@@ -7,7 +7,12 @@
 
 [core]
 	editor = vim
+	excludesFile = /home/abond/.gitignore_global
 
 [user]
 	email = olishmollie@gmail.com
 	name = "Andrew Bond"
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main

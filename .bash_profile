@@ -28,6 +28,8 @@ _prompt() {
 
     if [ -n "$SSH_CLIENT" ]; then
         prompt_color=$yellow
+    elif [ -f "/.dockerenv" ]; then
+        prompt_color=$blue
     else
         prompt_color=$green
     fi
@@ -60,14 +62,25 @@ _prompt() {
 }
 
 _env() {
-    PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-    PATH="$HOME/.local/bin:$PATH"
+    PATH="$HOME/.local/bin:$HOME/tools/bin:$PATH"
+    export PATH
+
+    # Set up texlive
+    texpath=$HOME/tools/texlive/2024
+    INFOPATH=$texpath/texmf-dist/doc/info:$INFOPATH
+    export INFOPATH
+    MANPATH=$texpath/texmf-dist/doc/man:$MANPATH
+    export MANPATH
+
+    # Load cargo
     if [ -f "$HOME/.cargo/env" ]; then
-	. "$HOME/.cargo/env"
+        . "$HOME/.cargo/env"
     fi
+
     # Load nvm
     export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    export PATH
 }
 
 _completions() {
