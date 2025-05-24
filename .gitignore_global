@@ -38,8 +38,11 @@ xcuserdata/
 .env
 node_modules/
 vendor/
-cmake-build-debug
+build
+build-*
+cmake-build-*
 *.dSYM
+.cache
 
 # OS generated files #
 ######################
@@ -66,3 +69,4 @@ tags
 # Miscellaneous #
 #################
 *.sync-conflict-*
+.venv
