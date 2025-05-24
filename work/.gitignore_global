@@ -1,0 +1,72 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.out
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+
+# Xcode #
+#########
+*.xcuserstate
+*.pbxuser
+xcuserdata/
+
+# Build Files/Folders #
+#######################
+.env
+node_modules/
+vendor/
+build
+build-*
+cmake-build-*
+*.dSYM
+.cache
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor Files/Folders #
+########################
+\#*\#
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+tags
+.dir-locals.el
+.nvim.lua
+
+# Miscellaneous #
+#################
+*.sync-conflict-*
+.venv
