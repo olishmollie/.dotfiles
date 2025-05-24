@@ -12,7 +12,9 @@
 [user]
 	email = olishmollie@gmail.com
 	name = "Andrew Bond"
+
 [pull]
 	rebase = false
+
 [init]
 	defaultBranch = main
