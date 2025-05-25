@@ -65,22 +65,10 @@ _env() {
     PATH="$HOME/.local/bin:$HOME/tools/bin:$PATH"
     export PATH
 
-    # Set up texlive
-    texpath=$HOME/tools/texlive/2024
-    INFOPATH=$texpath/texmf-dist/doc/info:$INFOPATH
-    export INFOPATH
-    MANPATH=$texpath/texmf-dist/doc/man:$MANPATH
-    export MANPATH
-
     # Load cargo
     if [ -f "$HOME/.cargo/env" ]; then
         . "$HOME/.cargo/env"
     fi
-
-    # Load nvm
-    export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    export PATH
 }
 
 _completions() {

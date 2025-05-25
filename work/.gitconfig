@@ -10,8 +10,8 @@
 	excludesFile = /home/abond/.gitignore_global
 
 [user]
-	email = olishmollie@gmail.com
-	name = "Andrew Bond"
+	email = abond@emporiaenergy.com
+	name = "Andy Bond"
 
 [pull]
 	rebase = false
