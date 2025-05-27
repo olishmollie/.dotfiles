@@ -62,13 +62,16 @@ _prompt() {
 }
 
 _env() {
-    PATH="$HOME/.local/bin:$HOME/tools/bin:$PATH"
-    export PATH
-
-    # Load cargo
+    PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+    PATH="$HOME/.local/bin:$PATH"
+    PATH="$HOME/tools/nvim-linux-x86_64/bin:$PATH"
+    PATH="$HOME/qp/qm/bin:$PATH"
     if [ -f "$HOME/.cargo/env" ]; then
-        . "$HOME/.cargo/env"
+      . "$HOME/.cargo/env"
     fi
+    # Load nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 }
 
 _completions() {
@@ -82,4 +85,10 @@ _terminal
 _prompt
 _env
 _completions
+
+# Update AWS credentials
+aws codeartifact login --tool pip --repository internal-python-tools --domain emporiaenergy --domain-owner 468950538559
+
+# Added by Toolbox App
+export PATH="$PATH:/home/abond/.local/share/JetBrains/Toolbox/scripts"
 
