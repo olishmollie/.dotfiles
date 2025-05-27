@@ -86,9 +86,6 @@ _prompt
 _env
 _completions
 
-# Update AWS credentials
-aws codeartifact login --tool pip --repository internal-python-tools --domain emporiaenergy --domain-owner 468950538559
-
 # Added by Toolbox App
 export PATH="$PATH:/home/abond/.local/share/JetBrains/Toolbox/scripts"
 
