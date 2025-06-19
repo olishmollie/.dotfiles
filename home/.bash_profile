@@ -6,7 +6,6 @@ _terminal() {
     alias vim="nvim"
     alias grep='grep --color=auto'
     alias ls='ls --color=always'
-    alias open='explorer.exe'
 }
 
 _venv() {
