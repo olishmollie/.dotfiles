@@ -89,6 +89,11 @@ profile() {
         export MANPATH="/opt/local/share/man:$MANPATH"
     fi
 
+    # Neovim
+    if [ -d "/opt/nvim-linux-x86_64" ]; then
+        export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+    fi
+
     [ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && source "/usr/local/etc/profile.d/bash_completion.sh"
     [ -r "/etc/profile.d/bash_completion.sh" ] && source "/etc/profile.d/bash_completion.sh"
     [ -r "/usr/share/git/completion/git-completion.bash" ] && source "/usr/share/git/completion/git-completion.bash"

@@ -1,4 +1,4 @@
-func profile() {
+profile() {
     export VISUAL=nvim
     export EDITOR=nvim
 
@@ -69,10 +69,16 @@ func profile() {
     fi
 
     # Nvm
-    if [ -f "$HOME/.nvm" ]; then
+    if [ -d "$HOME/.nvm" ]; then
         export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    ]
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    fi
+
+    # Neovim
+    if [ -d "/opt/nvim-linux-x86_64" ]; then
+        export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+    fi
 
     [ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && source "/usr/local/etc/profile.d/bash_completion.sh"
     [ -r "/etc/profile.d/bash_completion.sh" ] && source "/etc/profile.d/bash_completion.sh"
