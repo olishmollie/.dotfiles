@@ -61,15 +61,12 @@ profile() {
         export PATH="$HOME/.local/bin:$PATH"
     fi
 
-    if [ -d "$HOME/tools/bin" ]; then
-        export PATH="$HOME/tools/bin:$PATH"
-    fi
-
     # Texlive
     if [ -d "$HOME/tools/texlive/*" ]; then
-        local texpath=$HOME/tools/texlive/2025
-        export INFOPATH=$texpath/texmf-dist/doc/info:$INFOPATH
-        export MANPATH=$texpath/texmf-dist/doc/man:$MANPATH
+        local texpath="$HOME/tools/texlive/2025"
+        export INFOPATH="$texpath/texmf-dist/doc/info:$INFOPATH"
+        export MANPATH="$texpath/texmf-dist/doc/man:$MANPATH"
+        export PATH="$texpath/bin/x86_64-linux:$PATH"
     fi
 
     # Cargo
