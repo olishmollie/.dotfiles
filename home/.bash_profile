@@ -66,8 +66,8 @@ profile() {
     fi
 
     # Texlive
-    if [ -d "$HOME/tools/texlive/2024" ]; then
-        local texpath=$HOME/tools/texlive/2024
+    if [ -d "$HOME/tools/texlive/*" ]; then
+        local texpath=$HOME/tools/texlive/2025
         export INFOPATH=$texpath/texmf-dist/doc/info:$INFOPATH
         export MANPATH=$texpath/texmf-dist/doc/man:$MANPATH
     fi
