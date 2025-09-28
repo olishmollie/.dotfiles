@@ -69,6 +69,8 @@ profile() {
         export PATH="$texpath/2025/bin/x86_64-linux:$PATH"
     fi
 
+    export PATH="$HOME/qp/qm/bin:$PATH"
+
     # Cargo
     if [ -f "$HOME/.cargo/env" ]; then
         . "$HOME/.cargo/env"
