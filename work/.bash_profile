@@ -63,6 +63,8 @@ profile() {
     export PATH="$HOME/tools/nvim-linux-x86_64/bin:$PATH"
     export PATH="$HOME/qp/qm/bin:$PATH"
 
+    export CPM_SOURCE_CACHE=$HOME/.cache/CPM
+
     # Cargo
     if [ -f "$HOME/.cargo/env" ]; then
       . "$HOME/.cargo/env"

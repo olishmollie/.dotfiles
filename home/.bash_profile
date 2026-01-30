@@ -70,6 +70,7 @@ profile() {
     fi
 
     export PATH="$HOME/qp/qm/bin:$PATH"
+    export CPM_SOURCE_CACHE=$HOME/.cache/CPM
 
     # Cargo
     if [ -f "$HOME/.cargo/env" ]; then
