@@ -43,6 +43,7 @@ build-*
 cmake-build-*
 *.dSYM
 .cache
+compile_commands.json
 
 # OS generated files #
 ######################
@@ -70,3 +71,6 @@ tags
 #################
 *.sync-conflict-*
 .venv
+CLAUDE.md
+
+**/.claude/settings.local.json

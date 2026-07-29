@@ -64,7 +64,9 @@ profile() {
     export PATH="$HOME/qp/qm/bin:$PATH"
     export PATH="$HOME/qp/qtools/bin:$PATH"
 
+    # Everest
     export CPM_SOURCE_CACHE=$HOME/.cache/CPM
+    export EVEREST_WORKSPACE=$HOME/everest/workspace
 
     # Cargo
     if [ -f "$HOME/.cargo/env" ]; then
@@ -83,6 +85,11 @@ profile() {
         export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
     fi
 
+    # STMCubeProgrammer
+    if [ -d "$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/" ]; then
+      export PATH="$PATH:$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin/"
+    fi
+
     [ -r "/usr/local/etc/profile.d/bash_completion.sh" ] && source "/usr/local/etc/profile.d/bash_completion.sh"
     [ -r "/etc/profile.d/bash_completion.sh" ] && source "/etc/profile.d/bash_completion.sh"
     [ -r "/usr/share/git/completion/git-completion.bash" ] && source "/usr/share/git/completion/git-completion.bash"
@@ -90,6 +97,11 @@ profile() {
 
     # Added by Toolbox App
     export PATH="$PATH:/home/abond/.local/share/JetBrains/Toolbox/scripts"
+
+    # Pyenv
+    export PYENV_ROOT="$HOME/.pyenv"
+    [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - bash)"
 }
 
 profile
